@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { ThemeOptions } from '@material-ui/core/styles/createTheme';
 
+
 export const darkTheme: ThemeOptions = {
   palette: {
     type: 'dark',
@@ -20,7 +21,7 @@ export const darkTheme: ThemeOptions = {
 
 export const lightTheme: ThemeOptions = {
   palette: {
-    type: 'light',
+    type: 'dark',
     primary: {
       main: '#202020',
     },
