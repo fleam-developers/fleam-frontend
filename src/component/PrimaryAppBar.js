@@ -9,7 +9,7 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useNavigate} from 'react-router-dom';
 import {InputBase} from "@material-ui/core";
 import logo from '../resource/logo.png';
-//import {AuthService} from "../service/AuthService";
+import {AuthService} from "../service/AuthService";
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -108,15 +108,14 @@ export default function PrimaryAppBar() {
 
 
                     <IconButton
-                        // TODO: Add logic to go SignInPage.
-                        /*
+
                         onClick={() => {
                             if (AuthService.hasLoggedIn()) {
                                 navigate(`/profile/${AuthService.getUsername()}`)
                             } else {
                                 navigate("/sign-up")
                             }
-                        }}*/
+                        }}
                     >
                         <AccountCircle/>
                     </IconButton>

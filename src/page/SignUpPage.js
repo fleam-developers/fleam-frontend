@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 //import Copyright from "../component/common/Copyright";
-//import {AuthService} from "../service/AuthService";
+import {AuthService} from "../service/AuthService";
 import {Alert} from "@material-ui/lab";
 import {Snackbar} from "@material-ui/core";
 import {useNavigate} from "react-router-dom";
@@ -19,7 +19,13 @@ import {useNavigate} from "react-router-dom";
 import {Card} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-
+    cardContainer: {
+        maxWidth: "576px"
+    },
+    card: {
+        marginTop: theme.spacing(8),
+        padding: theme.spacing(4),
+    },
     paper: {
         display: 'flex',
         flexDirection: 'column',
@@ -36,10 +42,6 @@ const useStyles = makeStyles((theme) => ({
     },
     submit: {
         margin: theme.spacing(3, 0, 2),
-    },
-    card: {
-        marginTop: theme.spacing(8),
-        padding: theme.spacing(4),
     }
 }));
 
@@ -64,7 +66,7 @@ export default function SignUpPage() {
     };
 
     return (
-        <Container component="main" className={classes.paper} >
+        <Container component="main" className={classes.cardContainer} >
         <Card className={classes.card}>
             <CssBaseline/>
             <div className={classes.paper}>
@@ -160,7 +162,7 @@ export default function SignUpPage() {
                     </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
-                            <Link href="/signin" variant="body2">
+                            <Link href="/sign-in" variant="body2">
                                 Already have an account? Sign in.
                             </Link>
                         </Grid>

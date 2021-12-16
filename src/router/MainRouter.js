@@ -30,17 +30,17 @@ export default function MainRouter() {
                 <Route exact path='/' element={<LandingPage/>} />
                 <Route path='/browse' element={<HomePage/>} />
                 <Route path='/admin' element={<AdminPage/>} />
-                <Route path='/signin' element={<SignInPage/>} />
-                <Route path='/signup' element={<SignUpPage/>} />
+                <Route path='/sign-in' element={<SignInPage/>} />
+                <Route path='/sign-up' element={<SignUpPage/>} />
                 <Route path='/reset' element={<PasswordResetPage/>} />
                 <Route path='/search' element={<SearchPage/>} />
                 <Route path='/category' element={<CategoryPage/>} />
                 <Route path='/content' element={<ContentPage/>} />
                 <Route path='/video' element={<VideoPlayerPage/>} />
                 <Route path='/profile' element={<ProfileSettingsPage/>} />
-                <Route path='/becreator' element={<BeCreatorPage/>} />
+                <Route path='/be-creator' element={<BeCreatorPage/>} />
                 <Route path='/creator' element={<CreatorPage/>} />
-                <Route path='/addcontent' element={<AddContentPage/>} />
+                <Route path='/add-content' element={<AddContentPage/>} />
                 <Route path='/voting' element={<VotingPage/>} />
                 <Route path='/proposal' element={<ProposalPage/>} />
 
