@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function SignInPage() {
+export default function LoginPage() {
     const classes = useStyles();
     const navigate = useNavigate()
 
@@ -73,7 +73,7 @@ export default function SignInPage() {
             <div className={classes.paper}>
 
                 <Avatar className={classes.avatar}> <LockOutlinedIcon/> </Avatar>
-                <Typography component="h1" variant="h5"> Sign in </Typography>
+                <Typography component="h1" variant="h5"> Login </Typography>
 
                 <form className={classes.form} noValidate>
                     <TextField
@@ -125,14 +125,7 @@ export default function SignInPage() {
                                 setSnackbarMessage("Welcome back!");
                                 setSnackbarOpen(true);
 
-                                delay(1000).then(() => {
-                                    if(r.data.enrollmentCount === 0){
-                                        navigate("/browse");
-                                    }
-                                    else{
-                                        navigate("/")
-                                    }
-                                })
+                                delay(1000).then(() => navigate("/browse"))
                             }).catch(e => {
                                 setSnackbarSeverity("error");
                                 if (e.response !== undefined && e.response.status === 401) {
@@ -144,7 +137,7 @@ export default function SignInPage() {
                             })
                         }}
                     >
-                        Sign In
+                        Login
                     </Button>
                     <Grid container>
                         <Grid item xs>

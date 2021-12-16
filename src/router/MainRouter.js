@@ -7,7 +7,7 @@ import HomePage from "../page/HomePage";
 import LandingPage from "../page/LandingPage";
 import NotFoundPage from '../page/NotFoundPage';
 import AdminPage from '../page/AdminPage';
-import SignInPage from '../page/SignInPage';
+import LoginPage from '../page/LoginPage';
 import SignUpPage from '../page/SignUpPage';
 import PasswordResetPage from '../page/PasswordResetPage';
 import SearchPage from '../page/SearchPage';
@@ -30,7 +30,7 @@ export default function MainRouter() {
                 <Route exact path='/' element={<LandingPage/>} />
                 <Route path='/browse' element={<HomePage/>} />
                 <Route path='/admin' element={<AdminPage/>} />
-                <Route path='/sign-in' element={<SignInPage/>} />
+                <Route path='/login' element={<LoginPage/>} />
                 <Route path='/sign-up' element={<SignUpPage/>} />
                 <Route path='/reset' element={<PasswordResetPage/>} />
                 <Route path='/search' element={<SearchPage/>} />
