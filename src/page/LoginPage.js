@@ -144,7 +144,7 @@ export default function LoginPage() {
                             <Link href="/password-reset" variant="body2"> Forgot password? </Link>
                         </Grid>
                         <Grid item>
-                            <Link href="/sign-up" variant="body2"> {"Don't have an account? Sign up."} </Link>
+                            <Link href="/register" variant="body2"> {"Don't have an account? Register."} </Link>
                         </Grid>
                     </Grid>
                 </form>
