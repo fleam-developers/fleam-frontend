@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
-import { AccountCircle, ExitToApp } from "@material-ui/icons";
+import { AccountCircle, ExitToApp, PermIdentity } from "@material-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { InputBase } from "@material-ui/core";
 import { AuthService } from "../service/AuthService";
@@ -104,10 +104,18 @@ export default function PrimaryAppBar() {
             />
           </div>) : <div className={classes.search}/>}
           
+          
+          <Button
+            onClick={() => {
+                navigate("/register");
+            }}
+          >
+            {userLoggedIn ? null: <> Register  <PermIdentity/></>}
+          </Button>
 
           <Button
             onClick={() => {
-              if (AuthService.hasLoggedIn()) {
+              if (userLoggedIn) {
                 navigate(`/profile/${AuthService.getUsername()}`);
               } else {
                 navigate("/login");
