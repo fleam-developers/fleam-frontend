@@ -9,8 +9,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import { AccountCircle, ExitToApp } from "@material-ui/icons";
 import { useNavigate } from "react-router-dom";
 import { InputBase } from "@material-ui/core";
-import logo from "../resource/logo.png";
 import { AuthService } from "../service/AuthService";
+import Logo from "./Logo";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -57,9 +57,7 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
-  logo: {
-    maxWidth: "90px",
-  },
+
   appBar: {},
 }));
 
@@ -74,14 +72,8 @@ export default function PrimaryAppBar() {
     <div className={classes.grow}>
       <AppBar position="fixed" variant="outlined" className={classes.appBar}>
         <Toolbar>
-          <img
-            src={logo}
-            style={{ cursor: "pointer" }}
-            alt="fleam"
-            className={classes.logo}
-            color={"#00e3aa"}
-            onClick={() => navigate("/")}
-          />
+        <Logo/>
+
           <Typography
             variant="h6"
             style={{ color: "#00e3aa", fontWeight: "bold", cursor: "pointer" }}
