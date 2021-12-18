@@ -7,7 +7,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { ThemeOptions } from '@material-ui/core/styles/createTheme';
 
 
-export const darkTheme: ThemeOptions = {
+export const darkTheme = {
   palette: {
     type: 'dark',
     primary: {
@@ -19,7 +19,7 @@ export const darkTheme: ThemeOptions = {
   },
 };
 
-export const lightTheme: ThemeOptions = {
+export const lightTheme = {
   palette: {
     type: 'dark',
     primary: {
