@@ -13,6 +13,14 @@ import { AuthService } from "../service/AuthService";
 import Logo from "./Logo";
 
 const useStyles = makeStyles((theme) => ({
+  button: {
+    backgroundColor: theme.palette.secondary.main,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.light,
+    },
+    
+    marginLeft: theme.spacing(2)
+  },
   grow: {
     flexGrow: 1,
   },
@@ -57,8 +65,6 @@ const useStyles = makeStyles((theme) => ({
       width: "20ch",
     },
   },
-
-  appBar: {},
 }));
 
 export default function PrimaryAppBar() {
@@ -67,12 +73,12 @@ export default function PrimaryAppBar() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [userLoggedIn, setUserLoggedIn] = useState(AuthService.hasLoggedIn());
-  
+
   return (
     <div className={classes.grow}>
       <AppBar position="fixed" variant="outlined" className={classes.appBar}>
         <Toolbar>
-        <Logo/>
+          <Logo />
 
           <Typography
             variant="h6"
@@ -81,39 +87,49 @@ export default function PrimaryAppBar() {
             onClick={() => navigate("/feed/Popular")}
           ></Typography>
 
-            {userLoggedIn ? (<div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+          {userLoggedIn ? (
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Search anything…"
+                classes={{
+                  root: classes.searchInputRoot,
+                  input: classes.searchInput,
+                }}
+                onChange={(event) => {
+                  setSearchQuery(event.target.value);
+                }}
+                onKeyUp={(event) => {
+                  if (event.key === "Enter") {
+                    event.preventDefault();
+                    navigate(`/search/${searchQuery}`);
+                  }
+                }}
+                inputProps={{ "aria-label": "search" }}
+              />
             </div>
-            <InputBase
-              placeholder="Search anything…"
-              classes={{
-                root: classes.searchInputRoot,
-                input: classes.searchInput,
-              }}
-              onChange={(event) => {
-                setSearchQuery(event.target.value);
-              }}
-              onKeyUp={(event) => {
-                if (event.key === "Enter") {
-                  event.preventDefault();
-                  navigate(`/search/${searchQuery}`);
-                }
-              }}
-              inputProps={{ "aria-label": "search" }}
-            />
-          </div>) : <div className={classes.search}/>}
-          
-          
+          ) : (
+            <div className={classes.search} />
+          )}
+
           <Button
+            className={classes.button}
             onClick={() => {
-                navigate("/register");
+              navigate("/register");
             }}
           >
-            {userLoggedIn ? null: <> Register  <PermIdentity/></>}
+            {userLoggedIn ? null : (
+              <>
+                {" "}
+                Register <PermIdentity />
+              </>
+            )}
           </Button>
 
           <Button
+            className={classes.button}
             onClick={() => {
               if (userLoggedIn) {
                 navigate(`/profile/${AuthService.getUsername()}`);
@@ -122,7 +138,17 @@ export default function PrimaryAppBar() {
               }
             }}
           >
-            {userLoggedIn ? <>Profile<AccountCircle /></>: <> Login  <ExitToApp/></>}
+            {userLoggedIn ? (
+              <>
+                Profile
+                <AccountCircle />
+              </>
+            ) : (
+              <>
+                {" "}
+                Login <ExitToApp />
+              </>
+            )}
           </Button>
         </Toolbar>
       </AppBar>
