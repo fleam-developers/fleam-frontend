@@ -19,7 +19,7 @@ const dummyData = {
       movies: [
         {
           id: 1,
-          name: "Lord of The Rings",
+          name: "Lord of The Ducks",
           image:
             "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/how-to-keep-ducks-call-ducks-1615457181.jpg?resize=640:*",
         },
@@ -115,7 +115,7 @@ const dummyData = {
       movies: [
         {
           id: 1,
-          name: "Lord of The Rings",
+          name: "Fall",
           image:
             "https://resizing.flixster.com/ZLrK7Z-9s5SBmNTbTTn10HTELM0=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p176577_p_v10_ac.jpg",
         },
