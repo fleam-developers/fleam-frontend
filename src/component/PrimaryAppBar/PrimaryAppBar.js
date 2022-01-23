@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { alpha, makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import SearchIcon from "@material-ui/icons/Search";
-import { AccountCircle, ExitToApp, PermIdentity } from "@material-ui/icons";
+import { makeStyles } from "@mui/styles";
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import SearchIcon from "@mui/icons-material/Search";
+import { AccountCircle, ExitToApp, PermIdentity } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { InputBase } from "@material-ui/core";
-import { AuthService } from "../service/AuthService";
-import Logo from "./Logo";
+import { InputBase } from "@mui/material";
+import { AuthService } from "../../service/AuthService";
+import Logo from "../Logo/Logo";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -32,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.text.primary, 0.05),
-    "&:hover": {
-      backgroundColor: alpha(theme.palette.text.primary, 0.2),
-    },
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(50),

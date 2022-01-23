@@ -1,8 +1,6 @@
-import React from 'react'
-import JumboItems from '../component/JumboItems';
-import {makeStyles} from '@material-ui/core/styles';
-import {useNavigate} from "react-router-dom";
-import LandingHeader from '../component/LandingHeader';
+import React from 'react';
+import JumboItems from '../component/JumboItem/JumboItems';
+import LandingHeader from '../component/LandingHeader/LandingHeader';
 
 
 export default function LandingPage() {

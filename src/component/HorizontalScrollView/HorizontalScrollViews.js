@@ -8,7 +8,6 @@ export default function HorizontalScrollViews(props) {
             {props.categories.map(category => (
                 <HorizontalScrollView key={category.id} {...category} />
             ))}
-        
         </div>
     )
 }

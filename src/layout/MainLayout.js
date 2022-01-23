@@ -1,7 +1,7 @@
 import React from 'react';
-import PrimaryAppBar from "../component/PrimaryAppBar";
-import {makeStyles} from "@material-ui/core/styles";
-import Box from "@material-ui/core/Box";
+import PrimaryAppBar from "../component/PrimaryAppBar/PrimaryAppBar";
+import {makeStyles} from "@mui/styles";
+import Box from "@mui/material/Box";
 
 const useStyles = makeStyles((theme) => ({
     // Load app bar information from the theme

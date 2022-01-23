@@ -1,9 +1,9 @@
 import React from "react";
 
 import { VisibilityContext } from "react-horizontal-scrolling-menu";
-import Button from "@material-ui/core/Button";
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Button from "@mui/material/Button";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 function Arrow({
   children,

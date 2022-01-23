@@ -1,12 +1,11 @@
 import React from "react";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import axios from "axios";
-import { Button } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import ContentCard from "./ContentCard";
+import { makeStyles } from "@mui/styles";
+import ContentCard from "../ContentCard/ContentCard";
 import { LeftArrow, RightArrow } from "./Arrow";
-import "../style/HorizontalScrollView.css";
-import CategoryGroup from "@material-ui/core/Card";
+import "./HorizontalScrollView.css";
+import CategoryGroup from "@mui/material/Card";
 
 const useStyles = makeStyles((theme) => ({
   categoryGroup: {

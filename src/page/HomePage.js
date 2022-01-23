@@ -1,5 +1,5 @@
 import React from "react";
-import HorizontalScrollViews from "../component/HorizontalScrollViews";
+import HorizontalScrollViews from "../component/HorizontalScrollView/HorizontalScrollViews";
 
 /*
 We should generate HorizontalScrollViews into a container

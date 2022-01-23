@@ -1,7 +1,7 @@
 import React from "react";
-import { Grid, Box } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
+import { Grid, Box } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import Card from "@mui/material/Card";
 
 const useStyles = makeStyles((theme) => ({
   card: {

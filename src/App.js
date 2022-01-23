@@ -1,11 +1,9 @@
 import './App.css';
 import MainRouter from "./router/MainRouter";
 import React from 'react';
-import {createTheme, ThemeProvider} from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { ThemeOptions } from '@material-ui/core/styles/createTheme';
-
+import {createTheme, ThemeProvider} from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const darkTheme = {
   palette: {

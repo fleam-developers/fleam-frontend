@@ -1,7 +1,7 @@
 import React from "react";
-import logoIcon from "../resource/logo-icon.png";
-import logoText from "../resource/logo-text.png";
-import { makeStyles } from "@material-ui/core/styles";
+import logoIcon from "../../resource/logo-icon.png";
+import logoText from "../../resource/logo-text.png";
+import { makeStyles } from "@mui/styles";
 import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
