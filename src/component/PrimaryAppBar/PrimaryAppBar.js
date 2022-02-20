@@ -18,14 +18,14 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.light,
     },
     
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing('2px')
   },
   grow: {
     flexGrow: 1,
   },
   title: {
     flexGrow: 0,
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing('1px'),
   },
   search: {
     flexGrow: 1,
@@ -33,13 +33,13 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: theme.shape.borderRadius,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(50),
-      marginRight: theme.spacing(50),
+      marginLeft: theme.spacing('50px'),
+      marginRight: theme.spacing('50px'),
       width: "auto",
     },
   },
   searchIcon: {
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing('0px', '2px'),
     height: "100%",
     position: "absolute",
     pointerEvents: "none",

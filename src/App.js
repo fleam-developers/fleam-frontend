@@ -1,13 +1,13 @@
 import './App.css';
 import MainRouter from "./router/MainRouter";
 import React from 'react';
-import {createTheme, ThemeProvider} from '@mui/material/styles';
+import {createTheme, ThemeProvider, adaptV4Theme} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const darkTheme = {
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#202020',
     },
@@ -19,7 +19,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   palette: {
-    type: 'dark',
+    mode: 'light',
     primary: {
       main: '#202020',
     },
@@ -33,11 +33,11 @@ function Theme() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const theme = React.useMemo(
     () =>
-      createTheme(
+      createTheme(adaptV4Theme(
         prefersDarkMode ? darkTheme : lightTheme,
       ),
     [prefersDarkMode],
-  );
+  ));
   return theme;
 
 }
