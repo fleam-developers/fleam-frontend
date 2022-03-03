@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 0;
+}
+.logo .logoIcon {
+  height: 50px;
+}
+.logo .logoText {
+  height: 20px;
+}
+
+/*# sourceMappingURL=Logo.css.map */

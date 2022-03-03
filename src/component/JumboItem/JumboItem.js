@@ -3,45 +3,22 @@ import { Grid, Box } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Card from "@mui/material/Card";
 
-const useStyles = makeStyles((theme) => ({
-  card: {
-    margin: theme.spacing(1),
-    padding: theme.spacing(4),
-    backgroundColor: "black",
-    
-  },
-  image: {
-    width: "100%",
-  },
-  title: {
-      fontSize: "2.5rem",
-  },
-  subTitle: {
-        fontSize: "1.5rem",
-  },
-  centeredText: {
-    textAlign: "center",
-    display: "flex",
-    flexDirection:"column",
-    justifyContent: "center"
-  }
-}));
+import "./JumboItem.scss";
 
 export default function JumboItem(props) {
-  const classes = useStyles();
   return (
-    <Card className={classes.card}>
+    <div className="jumbo-item-card">
       <Box >
         <Grid container spacing={4}>
-          <Grid item xs={8} className={classes.centeredText} >
-            <h1 className={classes.title}>{props.title}</h1>
-            <div className={classes.subTitle} >{props.subTitle}</div>
+          <Grid item xs={8} className="centeredText" >
+            <h1 className="title">{props.title}</h1>
+            <div className="subTitle" >{props.subTitle}</div>
           </Grid>
           <Grid item xs={4}>
-            <img src={props.image} alt={props.alt} className={classes.image} />
+            <img src={props.image} alt={props.alt} className="image" />
           </Grid>
         </Grid>
       </Box>
-    </Card>
+    </div>
   );
 }

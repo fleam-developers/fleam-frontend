@@ -1,0 +1,36 @@
+.grow {
+  flex-grow: 1;
+}
+
+.title {
+  flex-grow: 0;
+  margin-left: 8px;
+}
+
+.search {
+  flex-grow: 1;
+  position: relative;
+  border-radius: 5px;
+}
+
+.searchIcon {
+  padding: 8px 16px;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchInputRoot {
+  color: inherit;
+}
+
+.searchInput {
+  padding: 8px 8px 8px 0;
+  padding-left: 1em;
+  width: 100%;
+}
+
+/*# sourceMappingURL=PrimaryAppBar.css.map */

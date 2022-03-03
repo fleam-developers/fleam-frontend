@@ -1,0 +1,16 @@
+
+$dark-theme: true !default;
+
+$primary-color: #202020 !default;
+$secondary-color: #ff0000 !default;
+$text-color: #ffffff !default;
+
+@if $dark-theme {
+  $primary-color: #202020;
+  $secondary-color: #ff0000;
+  $text-color: #ffffff;
+} @else {
+  $primary-color: #ffffff;
+  $secondary-color: #ff0000;
+  $text-color: #202020;
+}

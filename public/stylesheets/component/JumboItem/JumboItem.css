@@ -1,0 +1,22 @@
+.jumbo-item-card {
+  margin: 8px;
+  padding: 16px;
+  background-color: black;
+}
+.jumbo-item-card .image {
+  width: 100%;
+}
+.jumbo-item-card .centeredText {
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+.jumbo-item-card .centeredText .title {
+  font-size: 2.5rem;
+}
+.jumbo-item-card .centeredText .subTitle {
+  font-size: 1.5rem;
+}
+
+/*# sourceMappingURL=JumboItem.css.map */
