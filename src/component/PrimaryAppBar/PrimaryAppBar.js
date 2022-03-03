@@ -12,6 +12,7 @@ import { AuthService } from "../../service/AuthService";
 import Logo from "../Logo/Logo";
 
 import "./PrimaryAppBar.scss";
+import "../LandingHeader/LandingHeader.scss";
 
 export default function PrimaryAppBar() {
   const navigate = useNavigate();
@@ -55,7 +56,6 @@ export default function PrimaryAppBar() {
           ) : (
             <div className="search" />
           )}
-
           <Button
             className="button"
             color="primary"
@@ -73,7 +73,7 @@ export default function PrimaryAppBar() {
           </Button>
 
           <Button
-            className="button"
+            className="Button"
             variant="raised"
             onClick={() => {
               if (userLoggedIn) {

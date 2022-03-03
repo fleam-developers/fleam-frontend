@@ -1,14 +1,14 @@
 @import "../../App.scss";
 
 .button {
-//   background-color: red ;
-//   color: white ;
-//   margin-left: 16px;
-//   &:hover {
-//     background-color: $primary-color ;
-//   }
-  
+  background-color: red ;
+  color: white ;
+  margin-left: 16px;
+  &:hover {
+    background-color: $primary-color ;
+ }
 }
+
 
 .grow {
   flex-grow: 1;

@@ -18,36 +18,9 @@ import { Card } from "@mui/material";
 import { AuthService } from "../../service/AuthService";
 import FormItem from "./FormItem";
 //import {delay} from "../../util/async";
-
-const useStyles = makeStyles((theme) => ({
-  cardContainer: {
-    maxWidth: "576px",
-  },
-  card: {
-    marginTop: theme.spacing(8),
-    padding: theme.spacing(4),
-  },
-  paper: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    maxWidth: "576px",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+import "./Register.scss"
 
 export default function RegisterPage() {
-  const classes = useStyles();
   const navigate = useNavigate();
 
   const [password, setPassword] = React.useState("");
@@ -67,17 +40,17 @@ export default function RegisterPage() {
   };
 
   return (
-    <Container component="main" className={classes.cardContainer}>
-      <Card className={classes.card}>
+    <Container component="main" className="cardContainer">
+      <Card className="card">
         <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
+        <div className="paper">
+          <Avatar className="avatar">
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Register
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className="form" noValidate>
             <Grid container spacing={2}>
               <FormItem id_name="uname" label="Username" value={username} setValue={setUsername}></FormItem>
               <FormItem id_name="email" label="Email Address" value={email} setValue={setEmail}></FormItem>
@@ -94,7 +67,7 @@ export default function RegisterPage() {
               fullWidth
               variant="contained"
               color="primary"
-              className={classes.submit}
+              className="submit"
               // onClick={(event) => {
               //     event.preventDefault();
               //     console.log("Sign up button clicked.");

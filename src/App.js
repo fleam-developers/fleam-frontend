@@ -1,7 +1,7 @@
 import "./App.scss";
 import MainRouter from "./router/MainRouter";
 import React, { useState, useEffect } from "react";
-import { createTheme, ThemeProvider, adaptV4Theme } from "@mui/material/styles";
+import { createTheme, ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import './App.scss';

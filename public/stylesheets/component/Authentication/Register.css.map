@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":[],"names":[],"mappings":"","file":"Register.css"}
+{"version":3,"sourceRoot":"","sources":["../../../../src/component/Authentication/Register.scss","../../../../src/App.scss"],"names":[],"mappings":"AAEA;EACI;;;AAEF;EACE;EACA;;;AAEF;EACE;EACA;EACA;EACA;;;AAEF;EACE;EACA,kBCVc;;;ADYhB;EACE;EACA;;;AAEF;EACE","file":"Register.css"}
