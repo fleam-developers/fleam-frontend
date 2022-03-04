@@ -18,7 +18,8 @@ import { Card } from "@mui/material";
 import { AuthService } from "../../service/AuthService";
 import FormItem from "./FormItem";
 //import {delay} from "../../util/async";
-import "./Register.scss"
+
+import "./Auth.scss"
 
 export default function RegisterPage() {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <Container component="main" className="cardContainer">
+    <Container component="main" maxWidth="md" className="cardContainer">
       <Card className="card">
         <CssBaseline />
         <div className="paper">

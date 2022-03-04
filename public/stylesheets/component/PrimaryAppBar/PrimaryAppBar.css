@@ -1,28 +1,24 @@
-.button {
-  background-color: red;
-  color: white;
-  margin-left: 16px;
-}
-.button:hover {
-  background-color: #202020;
-}
-
 .grow {
   flex-grow: 1;
 }
-
-.title {
+.grow .button {
+  margin-left: 16px;
+  color: #ffffff;
+  background-color: #ff0000;
+}
+.grow .button:hover {
+  background-color: #cc0000;
+}
+.grow .title {
   flex-grow: 0;
   margin-left: 8px;
 }
-
-.search {
+.grow .search {
   flex-grow: 1;
   position: relative;
   border-radius: 5px;
 }
-
-.searchIcon {
+.grow .search .searchIcon {
   padding: 8px 16px;
   height: 100%;
   position: absolute;
@@ -31,12 +27,10 @@
   align-items: center;
   justify-content: center;
 }
-
-.searchInputRoot {
+.grow .search .searchInputRoot {
   color: inherit;
 }
-
-.searchInput {
+.grow .search .searchInput {
   padding: 8px 8px 8px 0;
   padding-left: 1em;
   width: 100%;

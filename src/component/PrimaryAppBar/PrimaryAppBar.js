@@ -22,7 +22,7 @@ export default function PrimaryAppBar() {
 
   return (
     <div className="grow">
-      <AppBar position="fixed" variant="outlined" className="appBar">
+      <AppBar position="fixed" variant="outlined">
         <Toolbar>
           <Logo />
 
@@ -57,7 +57,7 @@ export default function PrimaryAppBar() {
             <div className="search" />
           )}
           <Button
-            className="button"
+            className="button "
             color="primary"
             variant="raised"
             onClick={() => {
@@ -73,7 +73,7 @@ export default function PrimaryAppBar() {
           </Button>
 
           <Button
-            className="Button"
+            className="button"
             variant="raised"
             onClick={() => {
               if (userLoggedIn) {

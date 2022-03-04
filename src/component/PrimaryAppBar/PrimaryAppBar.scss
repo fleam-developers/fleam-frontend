@@ -1,55 +1,53 @@
 @import "../../App.scss";
 
-.button {
-  background-color: red ;
-  color: white ;
-  margin-left: 16px;
-  &:hover {
-    background-color: $primary-color ;
- }
-}
-
-
+// Todo: fix button color
 .grow {
   flex-grow: 1;
-}
+  .button {
+    margin-left: 16px;
+    color: $text-color;
+    background-color: $secondary-color;
+    &:hover {
+      background-color: darken($secondary-color, 10);
+    }
+  }
+  .title {
+    flex-grow: 0;
+    margin-left: 8px;
+  }
 
-.title {
-  flex-grow: 0;
-  margin-left: 8px;
-}
+  // Todo: find out what the following are
+  .search {
+    flex-grow: 1;
+    position: relative;
+    border-radius: 5px;
+    // [theme.breakpoints.up("sm")]: {
+    //   marginLeft: theme.spacing('50px');
+    //   marginRight: theme.spacing('50px');
+    //   width: "auto",
+    // },
+    .searchIcon {
+      padding: 8px 16px;
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.search {
-  flex-grow: 1;
-  position: relative;
-  border-radius: 5px;
-  // [theme.breakpoints.up("sm")]: {
-  //   marginLeft: theme.spacing('50px');
-  //   marginRight: theme.spacing('50px');
-  //   width: "auto",
-  // },
-}
-
-.searchIcon {
-  padding: 8px 16px;
-  height: 100%;
-  position: absolute;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.searchInputRoot {
-  color: inherit;
-}
-.searchInput {
-  padding: 8px 8px 8px 0;
-  // vertical padding + font size from searchIcon
-  padding-left: 1em;
-  //transition: theme.transitions.create("width");
-  width: 100%;
-  // [theme.breakpoints.up("md")]: {
-  //   width: "20ch",
-  // },
+    .searchInputRoot {
+      color: inherit;
+    }
+    .searchInput {
+      padding: 8px 8px 8px 0;
+      // vertical padding + font size from searchIcon
+      padding-left: 1em;
+      //transition: theme.transitions.create("width");
+      width: 100%;
+      // [theme.breakpoints.up("md")]: {
+      //   width: "20ch",
+      // },
+    }
+  }
 }
