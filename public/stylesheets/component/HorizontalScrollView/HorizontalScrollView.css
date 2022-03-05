@@ -1,24 +1,21 @@
-.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
-  display: none;
-}
-
-.react-horizontal-scrolling-menu--scroll-container {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
 .categoryGroup {
   margin-bottom: 32px;
   padding: 32px 0;
   background-color: black;
 }
-
-.categoryTitle {
+.categoryGroup .categoryTitle {
   margin: 0 0 32px 64px;
   font-size: 2rem;
   font-weight: bold;
+}
+.categoryGroup .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.categoryGroup .react-horizontal-scrolling-menu--scroll-container {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /*# sourceMappingURL=HorizontalScrollView.css.map */

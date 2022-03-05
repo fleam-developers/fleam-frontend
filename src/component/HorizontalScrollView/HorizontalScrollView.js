@@ -39,7 +39,7 @@ export default function HorizontalScrollView(props) {
       >
         {items.map((item) => (
           <ContentCard
-            itemId={item.id} // NOTE: itemId is required for track items
+            itemId={item.id} 
             title={item.name}
             key={item.id}
             selected={isItemSelected(item.id)}

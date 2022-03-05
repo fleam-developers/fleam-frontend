@@ -1,24 +1,34 @@
 .root {
   width: 100%;
-  margin: 8px;
-  transition: opacity 0.1s ease-out 20ms;
+  cursor: pointer;
 }
-.root:hover {
-  opacity: 0.5;
-}
-
-.image {
+.root .image {
   width: 200px;
   height: 300px;
+  margin-right: 16px;
   overflow: hidden;
   object-fit: cover;
+  transition: opacity 0.1s ease-out 20ms;
 }
-
-.textOnImage {
-  position: relative;
+.root .image:hover {
+  opacity: 0.5;
+}
+.root .image:hover + .textOnImage {
+  display: block;
+}
+.root .textOnImage {
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+  /* Fallback color */
+  color: text-color;
+  width: 200px;
+  padding: 8px 8px;
+  text-align: center;
+  display: none;
+}
+.root .textOnImage:hover {
+  display: block;
 }
 
 /*# sourceMappingURL=ContentCard.css.map */
