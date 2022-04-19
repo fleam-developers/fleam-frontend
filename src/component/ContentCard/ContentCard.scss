@@ -5,9 +5,7 @@
   cursor: pointer;
   //margin: 8px;
 
-  .image {
-    width: 200px;
-    height: 300px;
+  .content-image {
     margin-right: 16px;
     overflow: hidden;
     object-fit: cover;
@@ -16,7 +14,19 @@
       opacity: 0.5;
     }
   }
-  .image:hover + .textOnImage {
+
+  .recommended-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .category-image {
+    width: 200px;
+    height: 300px;
+  }
+
+  
+  .content-image:hover + .textOnImage {
     display: block;
   }
 

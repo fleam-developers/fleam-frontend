@@ -2,18 +2,24 @@
   width: 100%;
   cursor: pointer;
 }
-.root .image {
-  width: 200px;
-  height: 300px;
+.root .content-image {
   margin-right: 16px;
   overflow: hidden;
   object-fit: cover;
   transition: opacity 0.1s ease-out 20ms;
 }
-.root .image:hover {
+.root .content-image:hover {
   opacity: 0.5;
 }
-.root .image:hover + .textOnImage {
+.root .recommended-image {
+  width: 200px;
+  height: 200px;
+}
+.root .category-image {
+  width: 200px;
+  height: 300px;
+}
+.root .content-image:hover + .textOnImage {
   display: block;
 }
 .root .textOnImage {

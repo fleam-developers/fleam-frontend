@@ -8,7 +8,7 @@ export default function ContentCard(props) {
   return (
     <div className="root">
       <img
-        className="image"
+        className= {props.recommended ? "content-image recommended-image" : "content-image category-image"}
         key={props.id}
         alt={props.imageAlt}
         src={props.imageSource}

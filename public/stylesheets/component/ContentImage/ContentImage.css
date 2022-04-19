@@ -1,0 +1,21 @@
+.image-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+  width: 100%;
+}
+.image-card .image {
+  width: 100%;
+  height: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+  transition: opacity 0.1s ease-out 20ms;
+}
+.image-card .image:hover {
+  opacity: 0.5;
+}
+
+/*# sourceMappingURL=ContentImage.css.map */

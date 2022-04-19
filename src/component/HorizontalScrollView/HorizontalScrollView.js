@@ -27,7 +27,11 @@ export default function HorizontalScrollView(props) {
 
   return (
     <CategoryGroup className="categoryGroup">
-      <div className="categoryTitle">{props.name}</div>
+      {props.name ? (
+        <div className="title category">{props.name}</div>
+      ) : (
+        <div className="title recommended">Recommended</div>
+      )}
       <ScrollMenu
         LeftArrow={LeftArrow}
         RightArrow={RightArrow}
@@ -39,10 +43,11 @@ export default function HorizontalScrollView(props) {
       >
         {items.map((item) => (
           <ContentCard
-            itemId={item.id} 
+            itemId={item.id}
             title={item.name}
             key={item.id}
             selected={isItemSelected(item.id)}
+            recommended= {!props.name ? true : false}
             imageSource={item.image}
             imageAlt={item.name}
           ></ContentCard>
