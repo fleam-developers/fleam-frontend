@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    background-color: mediumorchid;
+}
+
+.video-js {
+    width: 100vh;
+    height: 100vh;
+    aspect-ratio: 16 / 9;
+    display: block;
+    margin: 0 auto;
+}

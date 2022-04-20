@@ -1,9 +1,10 @@
 import React from 'react'
+import VideoPlayer from '../component/VideoPlayer/VideoPlayer'
 
 export default function VideoPlayerPage() {
     return (
         <div>
-            <h1>Video Player Page</h1>
+           <VideoPlayer></VideoPlayer>
         </div>
     )
 }
