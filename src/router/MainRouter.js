@@ -27,16 +27,16 @@ export default function MainRouter() {
     <Router>
         <MainLayout>
             <Routes>
-                <Route exact path='/' element={<LandingPage/>} />
-                <Route path='/browse' element={<HomePage/>} />
-                <Route path='/admin' element={<AdminPage/>} />
-                <Route path='/login' element={<LoginPage/>} />
-                <Route path='/register' element={<RegisterPage/>} />
+                 <Route exact path='/' element={<LandingPage/>} />          {/*-?-*/}
+                <Route path='/browse' element={<HomePage/>} />              {/*-?-*/}
+                <Route path='/admin' element={<AdminPage/>} /> 
+                <Route path='/login' element={<LoginPage/>} />              {/*-?-*/}
+                <Route path='/register' element={<RegisterPage/>} />        {/*-?-*/}
                 <Route path='/reset' element={<PasswordResetPage/>} />
                 <Route path='/search' element={<SearchPage/>} />
                 <Route path='/category' element={<CategoryPage/>} />
-                <Route path='/content' element={<ContentPage/>} />
-                <Route path='/video' element={<VideoPlayerPage/>} />
+                <Route path='/content' element={<ContentPage/>} />          {/*-?-*/}
+                <Route path='/video' element={<VideoPlayerPage/>} />        {/**/}
                 <Route path='/profile' element={<ProfileSettingsPage/>} />
                 <Route path='/be-creator' element={<BeCreatorPage/>} />
                 <Route path='/creator' element={<CreatorPage/>} />

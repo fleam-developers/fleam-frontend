@@ -14,15 +14,18 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.24.0",
     "react": "^17.0.2",
+    "react-collapse": "^5.1.1",
     "react-dom": "^17.0.2",
     "react-horizontal-scrolling-menu": "^2.7.0",
     "react-indiana-drag-scroll": "^2.1.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^5.0.0",
+    "reactstrap": "^9.0.2",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
     "sass": "^1.49.9",
+    "video.js": "^7.18.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

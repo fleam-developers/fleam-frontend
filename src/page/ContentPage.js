@@ -3,6 +3,8 @@ import React from "react";
 import ContentDetails from "../component/ContentDetails/ContentDetails";
 import ContentImage from "../component/ContentImage/ContentImage";
 import HorizontalScrollView from "../component/HorizontalScrollView/HorizontalScrollView";
+import CommentSend from "../component/CommentSend/CommentSend";
+import CommentAnswers from "../component/Comments/CommentList";
 
 const dummyData = {
   movies: [
@@ -74,12 +76,10 @@ export default function ContentPage() {
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <ContentImage></ContentImage>
-          <HorizontalScrollView movies = {dummyData.movies} />
-
-          <div>xs=8</div>
-          <div>xs=4</div>
-          <div>xs=8</div>
+          <ContentImage />
+          <HorizontalScrollView movies={dummyData.movies} />
+          <CommentSend />
+          <CommentAnswers />
         </Grid>
         <Grid item xs={4}>
           <ContentDetails></ContentDetails>
