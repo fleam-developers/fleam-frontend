@@ -6,6 +6,24 @@
   margin: 0 auto;
 }
 
+.go-back-button {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+.go-back-button .button {
+  margin: 24px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.go-back-button .button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.go-back-button .button .button-icon {
+  width: 40px;
+  height: 40px;
+}
+
 /*
   Player Skin Designer for Video.js
   http://videojs.com

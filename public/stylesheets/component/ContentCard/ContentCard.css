@@ -27,7 +27,7 @@
   position: absolute;
   background: rgba(0, 0, 0, 0.2);
   /* Fallback color */
-  color: text-color;
+  color: #ffffff;
   width: 200px;
   padding: 8px 8px;
   text-align: center;

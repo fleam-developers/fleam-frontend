@@ -4,9 +4,9 @@ import video from "../../WALL-E.2008.mp4";
 
 export default function VideoPlayer() {
   const videoJsOptions = {
-    autoplay: true,
+    autoplay: false,
     controls: true,
-    
+
     playbackRates: [0.5, 1, 1.25, 1.5, 2],
     sources: [
       {

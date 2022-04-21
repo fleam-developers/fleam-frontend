@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import videojs from "video.js";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Button } from "@mui/material";
 
 import "./VideoPlayer.scss";
 
-// import "@videojs/themes/dist/city/index.css"
-// import "@videojs/themes/dist/fantasy/index.css"
-// import "@videojs/themes/dist/forest/index.css"
-import "@videojs/themes/dist/sea/index.css"
+////import "@videojs/themes/dist/city/index.css"
+import "@videojs/themes/dist/fantasy/index.css";
+import "@videojs/themes/dist/forest/index.css";
+import "@videojs/themes/dist/sea/index.css";
 
-export default function VideoJS({ options, themeName = "sea" }) {
+export default function VideoJS({ options, themeName = "forest" }) {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
 
@@ -30,8 +32,20 @@ export default function VideoJS({ options, themeName = "sea" }) {
   }, [options, videoRef, playerRef]);
 
   return (
-    <div data-vjs-player>
-      <video ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}`} />
+    <div>
+      <div className="go-back-button">
+        <Button
+          className="button"
+          color="primary"
+          variant="raised"
+          onClick={() => {
+            //navigate("/register");
+          }}
+        >
+          <ArrowBackIcon className="button-icon"></ArrowBackIcon>
+        </Button>
+      </div>
+      <video ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}`}></video>
     </div>
   );
 }

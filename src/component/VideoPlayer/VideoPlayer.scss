@@ -1,9 +1,31 @@
+@import "../../App.scss";
+
 .video-js {
-    width: 100%;
-    height: 100vh;
-    aspect-ratio: 16 / 9;
-    display: block;
-    margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  aspect-ratio: 16 / 9;
+  display: block;
+  margin: 0 auto;
+}
+
+.go-back-button {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+
+  .button {
+    margin: 24px;
+    border-radius: 50%;
+    background-color:rgba(256, 256, 256, 0.05);
+    &:hover {
+      background-color:rgba(256, 256, 256, 0.2);
+    }
+
+    .button-icon{
+        width: 40px;
+        height: 40px;
+    }
+  }
 }
 
 /*
@@ -21,7 +43,7 @@
 */
 
 // The following are SCSS variables to automate some of the values.
-// But don't feel limited by them. Change/replace whatever you want. 
+// But don't feel limited by them. Change/replace whatever you want.
 
 // The color of icons, text, and the big play button border.
 // Try changing to #0f0
@@ -50,7 +72,7 @@
 //    of the button is the center, but there is trend towards moving it to a corner
 //    where it gets out of the way of valuable content in the poster image.*/
 // .vjs-default-skin .vjs-big-play-button {
-//   /* The font size is what makes the big play button...big. 
+//   /* The font size is what makes the big play button...big.
 //      All width/height values use ems, which are a multiple of the font size.
 //      If the .video-js font-size is 10px, then 3em equals 30px.*/
 //   font-size: 3em;
@@ -59,7 +81,7 @@
 //      Now that font size is set, the following em values will be a multiple of the
 //      new font size. If the font-size is 3em (30px), then setting any of
 //      the following values to 3em would equal 30px. 3 * font-size. */
-//   $big-play-width: 3em; 
+//   $big-play-width: 3em;
 //   /* 1.5em = 45px default */
 //   $big-play-height: 1.5em;
 
@@ -77,7 +99,7 @@
 //     left: 50%;
 //     top: 50%;
 //     margin-left: -($big-play-width / 2);
-//     margin-top: -($big-play-height / 2);   
+//     margin-top: -($big-play-height / 2);
 //   } @else {
 //     /* Align top left. 0.5em = 15px default */
 //     left: 0.5em;
@@ -130,4 +152,3 @@
 //   /* Otherwise we'll rely on stacked opacities */
 //   background: rgba($slider-bg-color, 0.75);
 // }
-

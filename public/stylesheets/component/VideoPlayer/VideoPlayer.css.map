@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../../../src/component/VideoPlayer/VideoPlayer.scss"],"names":[],"mappings":"AAAA;EACI;EACA;EACA;EACA;EACA;;;AAGJ;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA","file":"VideoPlayer.css"}
+{"version":3,"sourceRoot":"","sources":["../../../../src/component/VideoPlayer/VideoPlayer.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;;AACA;EACE;;AAGF;EACI;EACA;;;AAKR;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA","file":"VideoPlayer.css"}
