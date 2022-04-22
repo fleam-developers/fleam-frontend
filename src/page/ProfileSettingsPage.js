@@ -1,9 +1,10 @@
 import React from 'react'
+import ProfileSettings from '../component/Authentication/ProfileSettings'
 
 export default function ProfileSettingsPage() {
     return (
         <div>
-            <h1>Profile Settings Page</h1>
+            <ProfileSettings></ProfileSettings>
         </div>
     )
 }

@@ -28,6 +28,16 @@
             background-color: darken($secondary-color, 10);
           }
         }
+        .go-to-login {
+          font-size: 1rem;
+          color: darken($text-color, 20);
+          .link {
+            margin-left: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: $text-color;
+          }
+        }
       }
     }
   }

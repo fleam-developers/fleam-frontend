@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 
-export default function FormItem({ isRequired = true, id_name, label, value, setValue }) {
+export default function FormItem({ isRequired = true, id_name, type, label, value, setValue }) {
   return (
     <Grid item xs={12}>
       <TextField
@@ -10,6 +10,7 @@ export default function FormItem({ isRequired = true, id_name, label, value, set
         required={isRequired}
         fullWidth
         id={id_name}
+        type={type}
         label={label}
         name={id_name}
         autoComplete={id_name}
