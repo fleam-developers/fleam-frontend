@@ -25,13 +25,11 @@
     height: 300px;
   }
 
-  
   .content-image:hover + .textOnImage {
     display: block;
   }
 
   .textOnImage {
-    top: 50%;
     position: absolute;
     background: rgba(0, 0, 0, 0.2); /* Fallback color */
     color: $text-color;
@@ -42,5 +40,11 @@
     &:hover {
       display: block;
     }
+  }
+  .textOnImage-recommended {
+    margin-top: -125px;
+  }
+  .textOnImage-category {
+    margin-top: -150px;
   }
 }

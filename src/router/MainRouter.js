@@ -33,7 +33,7 @@ export default function MainRouter() {
         <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />              {/*-?-*/}
         <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />        {/*-?-*/}
         <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />
-        <Route path="/search" element={<MainLayout><SearchPage /></MainLayout>} />            {/**/}
+        <Route path="/search" element={<MainLayout><SearchPage /></MainLayout>} />            {/*-?-*/}
         <Route path="/category" element={<MainLayout><CategoryPage /></MainLayout>} />        {/**/}
         <Route path="/content" element={<MainLayout><ContentPage /></MainLayout>} />          {/*-?-*/}
         <Route path="/profile" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />  {/*-?-*/}

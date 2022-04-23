@@ -23,7 +23,6 @@
   display: block;
 }
 .root .textOnImage {
-  top: 50%;
   position: absolute;
   background: rgba(0, 0, 0, 0.2);
   /* Fallback color */
@@ -35,6 +34,12 @@
 }
 .root .textOnImage:hover {
   display: block;
+}
+.root .textOnImage-recommended {
+  margin-top: -125px;
+}
+.root .textOnImage-category {
+  margin-top: -150px;
 }
 
 /*# sourceMappingURL=ContentCard.css.map */

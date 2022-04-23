@@ -13,7 +13,7 @@ export default function ContentCard(props) {
         alt={props.imageAlt}
         src={props.imageSource}
       />
-      <div className="textOnImage">{props.title}</div>
+      <div className= {props.recommended ? "textOnImage textOnImage-recommended" : "textOnImage textOnImage-category"}>{props.title}</div>
     </div>
   );
 }
