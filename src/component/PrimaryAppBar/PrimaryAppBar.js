@@ -12,7 +12,7 @@ import { AuthService } from "../../service/AuthService";
 import Logo from "../Logo/Logo";
 
 import "./PrimaryAppBar.scss";
-import "../LandingHeader/LandingHeader.scss";
+import "../Headers/Headers.scss";
 
 export default function PrimaryAppBar() {
   const navigate = useNavigate();

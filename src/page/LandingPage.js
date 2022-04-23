@@ -1,6 +1,6 @@
 import React from 'react';
 import JumboItems from '../component/JumboItem/JumboItems';
-import LandingHeader from '../component/LandingHeader/LandingHeader';
+import LandingHeader from '../component/Headers/LandingHeader';
 
 
 export default function LandingPage() {

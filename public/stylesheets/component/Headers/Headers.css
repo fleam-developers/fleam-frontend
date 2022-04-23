@@ -1,0 +1,27 @@
+.header-card {
+  text-align: center;
+  padding: 32px;
+}
+.header-card .header-button {
+  color: #ffffff;
+  background-color: #ff0000;
+  padding: 0 16px;
+  height: 3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.header-card .header-button:hover {
+  background-color: #cc0000;
+}
+.header-card .header-title {
+  font-size: 2.5rem;
+}
+.header-card .header-subTitle {
+  font-size: 2rem;
+}
+.header-card .header-text {
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+}
+
+/*# sourceMappingURL=Headers.css.map */

@@ -4,19 +4,19 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 
-import "./LandingHeader.scss";
+import "./Headers.scss";
 
 export default function LandingHeader() {
   const navigate = useNavigate();
 
   return (
-    <Card className="landing-header-card">
-      <h1 className="landing-header-title">Unlimited movies, TV shows and more.</h1>
-      <h2 className="landing-header-subTitle">Watch anywhere. Cancel anytime.</h2>
-      <div className="landing-header-text">Ready to watch? Click the register button to create or restart your membership.</div>
+    <Card className="header-card">
+      <h1 className="header-title">Unlimited movies, TV shows and more.</h1>
+      <h2 className="header-subTitle">Watch anywhere. Cancel anytime.</h2>
+      <div className="header-text">Ready to watch? Click the register button to create or restart your membership.</div>
 
       <Button
-        className="landing-header-button"
+        className="header-button"
         onClick={() => {
           navigate("/register");
         }}

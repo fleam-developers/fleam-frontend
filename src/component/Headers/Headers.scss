@@ -1,26 +1,26 @@
 @import "../../App.scss";
 
-.landing-header-card {
+.header-card {
   text-align: center;
   padding: 32px;
-  .landing-header-button {
+  .header-button {
     color: $text-color;
     background-color: $secondary-color;
     &:hover {
       background-color: darken($secondary-color, 10);
     }
-    width: 10rem;
+    padding: 0 16px;
     height: 3rem;
     font-size: 1.2rem;
     font-weight: bold;
   }
-  .landing-header-title {
+  .header-title {
     font-size: 2.5rem;
   }
-  .landing-header-subTitle {
+  .header-subTitle {
     font-size: 2rem;
   }
-  .landing-header-text {
+  .header-text {
     font-size: 1.5rem;
     margin-bottom: 32px;
   }
