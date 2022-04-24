@@ -14,7 +14,7 @@ export default function CategoryDetails(props) {
       <div>
         {setSelectedCategory ? <h2 className="search-value">Selected Category: "{selectedCategory}"</h2> : null}
         
-        <CategoryGroup className="categoryGroup">
+        <CategoryGroup className="category-details-group">
           <Grid
             container
             spacing={{ xs: 2, md: 3 }}

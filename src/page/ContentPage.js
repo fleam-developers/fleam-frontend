@@ -77,7 +77,7 @@ export default function ContentPage() {
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <ContentImage />
-          <HorizontalScrollView movies={dummyData.movies} />
+          <HorizontalScrollView type="content" movies={dummyData.movies} />
           <CommentSend />
           <CommentAnswers />
         </Grid>

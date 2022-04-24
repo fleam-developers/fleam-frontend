@@ -38,7 +38,7 @@ export default function MainRouter() {
         <Route path="/content" element={<MainLayout><ContentPage /></MainLayout>} />          {/*-?-*/}
         <Route path="/profile" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />  {/*-?-*/}
         <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />     {/*-?-*/}
-        <Route path="/creator" element={<MainLayout><CreatorPage /></MainLayout>} />
+        <Route path="/creator" element={<MainLayout><CreatorPage /></MainLayout>} />          {/**/}
         <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />
         <Route path="/voting" element={<MainLayout><VotingPage /></MainLayout>} />
         <Route path="/proposal" element={<MainLayout><ProposalPage /></MainLayout>} />

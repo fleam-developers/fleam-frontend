@@ -1,0 +1,28 @@
+.statistics {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  background-color: black;
+}
+.statistics .title {
+  font-weight: bold;
+  padding-top: 32px;
+  margin: 0 0 32px 64px;
+  font-size: 2rem;
+}
+.statistics .statistics-group {
+  margin: 0 64px;
+}
+.statistics .bar {
+  align-items: center;
+  width: 84.4%;
+}
+.statistics .subtitle {
+  margin: 15px 10px;
+}
+.statistics .hr {
+  margin: 10px 10px;
+  margin-bottom: 30px;
+  opacity: 0.15;
+}
+
+/*# sourceMappingURL=CreatorStatistics.css.map */

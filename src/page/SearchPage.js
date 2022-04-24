@@ -171,7 +171,7 @@ const dummyData = {
 export default function SearchPage() {
   return (
     <div>
-      <HorizontalScrollViews categories={dummyData.categories} />
+      <HorizontalScrollViews type="search" categories={dummyData.categories} />
     </div>
   );
 }

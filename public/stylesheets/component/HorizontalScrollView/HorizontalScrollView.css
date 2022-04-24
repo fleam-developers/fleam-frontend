@@ -16,6 +16,9 @@
   margin: 0 0 16px 64px;
   font-size: 1.5rem;
 }
+.categoryGroup .search {
+  padding-top: 32px;
+}
 .categoryGroup .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
   display: none;
 }

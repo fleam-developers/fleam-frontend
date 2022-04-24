@@ -181,7 +181,7 @@ const dummyData = {
 export default function HomePage(props) {
   return (
     <div>
-      <HorizontalScrollViews categories={dummyData.categories} />
+      <HorizontalScrollViews type="home" categories={dummyData.categories} />
     </div>
   );
 }

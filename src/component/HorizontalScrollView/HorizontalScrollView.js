@@ -27,11 +27,19 @@ export default function HorizontalScrollView(props) {
 
   return (
     <CategoryGroup className="categoryGroup">
-      {props.name ? (
+      {/* {props.name ? (
         <div className="title category">{props.name}</div>
       ) : (
-        <div className="title recommended">Recommended</div>
-      )}
+        props.type ? <div className="title category">Manage Your Contents</div> : <div className="title recommended">Recommended</div>
+      )} */}
+
+      {props.type === "home" ? <div className="title category">{props.name}</div> : null}
+      {props.type === "category" ? <div className="title category">{props.name}</div> : null}
+      {props.type === "creator" ? <div className="title category">Manage Your Contents</div> : null}
+      {props.type === "content" ? <div className="title recommended">Recommended</div> : null}
+      {props.type === "search" ? <div className="title recommended"></div> : null}
+      
+      
       <ScrollMenu
         LeftArrow={LeftArrow}
         RightArrow={RightArrow}
@@ -47,7 +55,7 @@ export default function HorizontalScrollView(props) {
             title={item.name}
             key={item.id}
             selected={isItemSelected(item.id)}
-            recommended= {!props.name ? true : false}
+            recommended= {props.type === "content" ? true : false}
             imageSource={item.image}
             imageAlt={item.name}
           ></ContentCard>
