@@ -1,0 +1,85 @@
+@import "../../App.scss";
+
+.admin-container {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+
+  .title {
+    font-weight: bold;
+    padding-top: 32px;
+    margin: 0 0 32px 64px;
+  }
+
+  .subtitle {
+    text-align: center;
+    // margin-bottom: 16px;
+  }
+  
+  .text {
+    margin-left: 5%;
+    font-weight: bold;
+  }
+
+  .low-opacity-text {
+    opacity: 0.6;
+  }
+
+  .card-container {
+    margin-left: 2%;
+    width: 96%;
+  }
+
+  .card-content {
+    background-color: gray;
+  }
+
+  .flex-end {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .creator {
+    padding: 32px 32px;
+    border-radius: 8px;
+    background-color: darken(gray, 30);
+    height: 250px;
+  }
+
+  .report {
+    padding: 16px 16px;
+    border-radius: 8px;
+    background-color: darken(gray, 30);
+  }
+
+  .bar {
+    align-items: center;
+    width: 84.4%;
+  }
+
+  .hr {
+    opacity: 0.15;
+    margin-bottom: 24px;
+  }
+
+  .details-button {
+    width: 90%;
+    margin: 5px 5%;
+    color: $text-color;
+    background-color: $secondary-color;
+    &:hover {
+      background-color: darken($secondary-color, 10);
+    }
+    font-weight: bold;
+  }
+
+  .report-button {
+    color: white;
+    padding: 5px 5%;
+    background-color: $secondary-color;
+    &:hover {
+      background-color: darken($secondary-color, 10);
+    }
+    font-weight: bold;
+  }
+}

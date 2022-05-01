@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from 'chart.js/auto'
 
-import "./CreatorStatistics.scss";
+import "./Statistics.scss";
 
 export default function BarChart() {
   const [counts, setCounts] = useState([4, 2, 6, 7, 5, 5, 13]);

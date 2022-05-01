@@ -4,13 +4,13 @@ import { Grid } from "@mui/material";
 
 import BarChart from "./BarChart";
 
-import "./CreatorStatistics.scss";
+import "./Statistics.scss";
 
 export default function CreatorStatistics() {
   return (
     <div>
       <Card className="statistics">
-        <div className="title">Creator Statistics</div>
+        <h1 className="title">Creator Statistics</h1>
         <Grid container spacing={{ xs: 2, md: 3 }}>
           <Grid item xs={12} sm={12} md={6} lg={6}>
             <div className="statistics-group">

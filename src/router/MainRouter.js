@@ -29,7 +29,7 @@ export default function MainRouter() {
       <Routes>
         <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />           {/*-?-*/}
         <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />              {/*-?-*/}
-        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />
+        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />              {/**/}
         <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />              {/*-?-*/}
         <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />        {/*-?-*/}
         <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />
@@ -38,7 +38,7 @@ export default function MainRouter() {
         <Route path="/content" element={<MainLayout><ContentPage /></MainLayout>} />          {/*-?-*/}
         <Route path="/profile" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />  {/*-?-*/}
         <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />     {/*-?-*/}
-        <Route path="/creator" element={<MainLayout><CreatorPage /></MainLayout>} />          {/**/}
+        <Route path="/creator" element={<MainLayout><CreatorPage /></MainLayout>} />          {/*-?-*/}
         <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />
         <Route path="/voting" element={<MainLayout><VotingPage /></MainLayout>} />
         <Route path="/proposal" element={<MainLayout><ProposalPage /></MainLayout>} />

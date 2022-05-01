@@ -1,0 +1,71 @@
+.admin-container {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+}
+.admin-container .title {
+  font-weight: bold;
+  padding-top: 32px;
+  margin: 0 0 32px 64px;
+}
+.admin-container .subtitle {
+  text-align: center;
+}
+.admin-container .text {
+  margin-left: 5%;
+  font-weight: bold;
+}
+.admin-container .low-opacity-text {
+  opacity: 0.6;
+}
+.admin-container .card-container {
+  margin-left: 2%;
+  width: 96%;
+}
+.admin-container .card-content {
+  background-color: gray;
+}
+.admin-container .flex-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.admin-container .creator {
+  padding: 32px 32px;
+  border-radius: 8px;
+  background-color: #343434;
+  height: 250px;
+}
+.admin-container .report {
+  padding: 16px 16px;
+  border-radius: 8px;
+  background-color: #343434;
+}
+.admin-container .bar {
+  align-items: center;
+  width: 84.4%;
+}
+.admin-container .hr {
+  opacity: 0.15;
+  margin-bottom: 24px;
+}
+.admin-container .details-button {
+  width: 90%;
+  margin: 5px 5%;
+  color: #ffffff;
+  background-color: #ff0000;
+  font-weight: bold;
+}
+.admin-container .details-button:hover {
+  background-color: #cc0000;
+}
+.admin-container .report-button {
+  color: white;
+  padding: 5px 5%;
+  background-color: #ff0000;
+  font-weight: bold;
+}
+.admin-container .report-button:hover {
+  background-color: #cc0000;
+}
+
+/*# sourceMappingURL=Admin.css.map */
