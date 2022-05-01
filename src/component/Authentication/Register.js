@@ -13,7 +13,7 @@ import { Snackbar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Card } from "@mui/material";
 import { AuthService } from "../../service/AuthService";
-import FormItem from "./FormItem";
+import FormItem from "../Common/FormItem";
 //import {delay} from "../../util/async";
 
 import "./Auth.scss";
@@ -51,7 +51,7 @@ export default function RegisterPage() {
           <form className="form" noValidate>
             <Grid container spacing={2}>
               <FormItem id_name="uname" label="Username" value={username} setValue={setUsername}></FormItem>
-              <FormItem id_name="email" label="Email Address" value={email} setValue={setEmail}></FormItem>
+              <FormItem id_name="email" type="email" label="Email Address" value={email} setValue={setEmail}></FormItem>
               <FormItem
                 id_name="password"
                 type="password"

@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 
-export default function FormItem({ isRequired = true, id_name, type, label, value, setValue }) {
+export default function FormItem({ isRequired = true, multiline, maxRows, id_name, type, label, value, setValue }) {
   return (
     <Grid item xs={12}>
       <TextField
@@ -14,6 +14,9 @@ export default function FormItem({ isRequired = true, id_name, type, label, valu
         label={label}
         name={id_name}
         autoComplete={id_name}
+        multiline={multiline}
+        rows={multiline ? maxRows : 1}
+        maxRows={multiline ? maxRows : 1}
         value={value}
         onChange={(event) => {
           setValue(event.target.value);

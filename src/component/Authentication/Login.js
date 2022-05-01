@@ -21,7 +21,7 @@ import { AuthService } from "../../service/AuthService";
 import { delay } from "../../util/async";
 
 import "./Auth.scss";
-import FormItem from "./FormItem";
+import FormItem from "../Common/FormItem";
 
 export default function LoginPage() {
   const navigate = useNavigate();

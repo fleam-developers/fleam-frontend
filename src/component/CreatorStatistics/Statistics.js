@@ -10,7 +10,7 @@ export default function Statistics() {
   return (
     <div>
       <Card className="statistics">
-        <h1 className="title">Creator Statistics</h1>
+        <h1 className="title">Statistics</h1>
         <Grid container spacing={{ xs: 2, md: 3 }}>
           <Grid item xs={12} sm={12} md={6} lg={6}>
             <div className="statistics-group">
