@@ -1,6 +1,8 @@
 import React from 'react';
 import JumboItems from '../component/JumboItem/JumboItems';
 import LandingHeader from '../component/Headers/LandingHeader';
+import { Counter } from '../component/Counter';
+import Dashboard from '../Dashboard/Dashboard';
 
 
 export default function LandingPage() {
@@ -32,6 +34,8 @@ export default function LandingPage() {
     return (
         <div>
             <LandingHeader/>
+            <Counter></Counter>
+            {/* <Dashboard></Dashboard> */}
             <JumboItems items={dummyData} />
         </div>
     )

@@ -10,29 +10,42 @@ import { useNavigate } from "react-router-dom";
 import { InputBase } from "@mui/material";
 import { AuthService } from "../../service/AuthService";
 import Logo from "../Logo/Logo";
+import { useDispatch, connect, useSelector } from "react-redux";
+import { setDarkMode, setLanguage } from "../../stores/Site";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import "./PrimaryAppBar.scss";
 import "../Headers/Headers.scss";
+import { fetchDashboardData } from "../../stores/dashboardSlice";
 
-export default function PrimaryAppBar() {
+
+
+function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
   const navigate = useNavigate();
+
+
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   console.log(dispatch(fetchDashboardData()));
+  // }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [userLoggedIn, setUserLoggedIn] = useState(AuthService.hasLoggedIn());
+
 
   return (
     <div className="grow">
       <AppBar position="fixed" variant="outlined">
         <Toolbar>
           <Logo />
-
           <Typography
             variant="h6"
             style={{ color: "#00e3aa", fontWeight: "bold", cursor: "pointer" }}
             className="title"
             onClick={() => navigate("/feed/Popular")}
           ></Typography>
-
           {userLoggedIn ? (
             <div className="search">
               <div className="searchIcon">
@@ -56,8 +69,12 @@ export default function PrimaryAppBar() {
           ) : (
             <div className="search" />
           )}
+          <Button style={{ color: "white", width: 0 }} onClick={() => setDarkMode()}>
+            {dark ? <Brightness7Icon /> : <Brightness4Icon />}
+          </Button>
+
           <Button
-            className="button "
+            className="button"
             color="primary"
             variant="raised"
             onClick={() => {
@@ -71,7 +88,6 @@ export default function PrimaryAppBar() {
               </>
             )}
           </Button>
-
           <Button
             className="button"
             variant="raised"
@@ -100,3 +116,18 @@ export default function PrimaryAppBar() {
     </div>
   );
 }
+
+const mapStateToProps = (state) => ({
+  dark: state.site.dark,
+  language: state.site.language,
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // dispatching plain actions
+    setDarkMode: () => dispatch(setDarkMode()),
+    setLanguage: () => dispatch(setLanguage()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PrimaryAppBar);

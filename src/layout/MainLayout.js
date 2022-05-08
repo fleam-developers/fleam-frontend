@@ -14,13 +14,7 @@ export default function MainLayout(props) {
   return (
     <Box>
       <PrimaryAppBar />
-
-      {/* side drawer */}
-      {/* <div>side drawer</div> */}
-
-      {/* main content */}
       <Box>
-        {/* Shift content by appbar width */}
         <div className={classes.toolbar} />
         {props.children}
       </Box>

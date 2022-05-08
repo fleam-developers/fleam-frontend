@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import './App.scss';
+import { useSelector } from "react-redux";
 
 export const darkTheme = {
   palette: {
@@ -41,14 +42,11 @@ export const lightTheme = {
 // }
 
 function App() {
-  const [darkMode, setDarkMode] = React.useState(true);
-  console.log("prefersDarkMode: ", darkMode);
+  const { dark } = useSelector((state) => state.site);
 
-  const theme = React.useMemo(() => createTheme(darkMode ? darkTheme : lightTheme));
+  console.log(dark)
+  const theme = React.useMemo(() => createTheme(dark ? darkTheme : lightTheme));
 
-  const handleDarkModeToggle = () => {
-    setDarkMode(!darkMode);
-  };
 
   return (
     <ThemeProvider theme={theme}>
