@@ -44,7 +44,6 @@ export const lightTheme = {
 function App() {
   const { dark } = useSelector((state) => state.site);
 
-  console.log(dark)
   const theme = React.useMemo(() => createTheme(dark ? darkTheme : lightTheme));
 
 

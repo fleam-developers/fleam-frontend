@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { API_URL, HTTP_STATUS } from '../Dashboard/constants'
+import { API_URL, HTTP_STATUS } from './constants'
 import axios from 'axios'
 
 const namespace = 'dashboard'

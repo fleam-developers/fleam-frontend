@@ -5,7 +5,6 @@ import "./ContentCard.scss";
 
 export default function ContentCard(props) {
 
-  console.log(props.recommended)
   return (
     <div className="root">
       <img
