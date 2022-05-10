@@ -1,7 +1,3 @@
-/**
- * Credit: Umut Emre Bayramoğlu
- * https://github.com/CommunITU/communitu-frontend
- */
 
  import {AuthService} from "./AuthService";
 

@@ -27,24 +27,24 @@ export default function MainRouter() {
   return (
     <Router>
       <Routes>
-        <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />           {/*-?-*/}
-        <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />              {/*-?-*/}
-        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />              {/*-?-*/}
-        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />              {/*-?-*/}
-        <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />        {/*-?-*/}
-        <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />      {/*---*/}
-        <Route path="/search" element={<MainLayout><SearchPage /></MainLayout>} />            {/*-?-*/}
-        <Route path="/category" element={<MainLayout><CategoryPage /></MainLayout>} />        {/*-?-*/}
-        <Route path="/content" element={<MainLayout><ContentPage /></MainLayout>} />          {/*-?-*/}
-        <Route path="/profile" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />  {/*-?-*/}
-        <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />     {/*-?-*/}
-        <Route path="/creator" element={<MainLayout><CreatorPage /></MainLayout>} />          {/*-?-*/}
-        <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />   {/**/}
-        <Route path="/voting" element={<MainLayout><VotingPage /></MainLayout>} />            {/*---*/}
-        <Route path="/proposal" element={<MainLayout><ProposalPage /></MainLayout>} />        {/*---*/}
-        <Route path="*" element={<MainLayout><NotFoundPage /></MainLayout>} />                {/*---*/}
+        <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />                             {/*-?-*/}
+        <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />                                {/*-?-*/}
+        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*-?-*/}
+        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*-?-*/}
+        <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*-?-*/}
+        <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*---*/}
+        <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*-?-*/}
+        <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*-?-*/}
+        <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*-?-*/}
+        <Route path="/profile/:usename" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />           {/*-?-*/}
+        <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />                       {/*-?-*/}
+        <Route path="/creator/:creatorName" element={<MainLayout><CreatorPage /></MainLayout>} />               {/*-?-*/}
+        <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />                     {/**/}
+        <Route path="/voting" element={<MainLayout><VotingPage /></MainLayout>} />                              {/*---*/}
+        <Route path="/proposal" element={<MainLayout><ProposalPage /></MainLayout>} />                          {/*---*/}
+        <Route path="*" element={<MainLayout><NotFoundPage /></MainLayout>} />                                  {/*---*/}
 
-        <Route path="/video" element={<VideoPlayerPage />} />                                 {/*-?-*/}
+        <Route path="/video/:contentName" element={<VideoPlayerPage />} />                                      {/*-?-*/}
       </Routes>
     </Router>
   );

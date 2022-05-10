@@ -1,4 +1,5 @@
 import React from "react";
+import {useParams} from "react-router-dom";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import axios from "axios";
 import { makeStyles } from "@mui/styles";
@@ -14,7 +15,8 @@ export default function HorizontalScrollView(props) {
   const [position, setPosition] = React.useState(0);
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
-
+  const {contentName} = useParams()
+  console.log(contentName)
   const handleClick =
     (id) =>
     ({ getItemById, scrollToItem }) => {

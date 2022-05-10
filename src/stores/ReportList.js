@@ -2,37 +2,37 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { API_URL, HTTP_STATUS } from './constants'
 import axios from 'axios'
 
-const namespace = 'movies'
+const namespace = 'reports'
 
-export const fetchAllMovies = createAsyncThunk(
-  `${namespace}/fetchAllMovies`,
+export const fetchAllReports = createAsyncThunk(
+  `${namespace}/fetchAllReports`,
   async () => {
     const { data } = await axios.get(`${API_URL}/movies`)
     return data
   }
 )
 
-const MoviesSlice = createSlice({
+const ReportListSlice = createSlice({
   name: namespace,
   initialState: {
     loading: null,
-    movies: null,
+    reports: null,
     errorMessage: null,
   },
   reducers: {},
   extraReducers: {
-    [fetchAllMovies.pending](state) {
+    [fetchAllReports.pending](state) {
       state.loading = HTTP_STATUS.PENDING
     },
-    [fetchAllMovies.fulfilled](state, { payload }) {
+    [fetchAllReports.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED
-      state.movies = payload
+      state.reports = payload
     },
-    [fetchAllMovies.rejected](state, { error }) {
+    [fetchAllReports.rejected](state, { error }) {
       state.loading = HTTP_STATUS.REJECTED
       state.errorMessage = error.message
     },
   },
 })
 
-export default MoviesSlice.reducer
+export default ReportListSlice.reducer

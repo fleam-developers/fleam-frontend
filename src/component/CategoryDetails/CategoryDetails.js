@@ -7,7 +7,7 @@ import { fetchAllMovies } from "../../stores/Movies";
 
 import "./CategoryDetails.scss";
 
-export default function CategoryDetails(props) {
+export default function CategoryDetails() {
   const [selectedCategory, setSelectedCategory] = useState("Selected Category");
   //const [movies, setMovies] = React.useState(props.category);
 
@@ -17,9 +17,6 @@ export default function CategoryDetails(props) {
   useEffect(() => {
     dispatch(fetchAllMovies());
   }, []);
-  console.log(loading);
-  console.log(error);
-  console.log(movies);
 
   if (!movies) {
     if (loading) return <h1>LOADING...</h1>;
