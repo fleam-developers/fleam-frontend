@@ -1,88 +1,48 @@
 import { Container, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import ContentDetails from "../component/ContentDetails/ContentDetails";
 import ContentImage from "../component/ContentImage/ContentImage";
 import HorizontalScrollView from "../component/HorizontalScrollView/HorizontalScrollView";
 import CommentSend from "../component/CommentSend/CommentSend";
 import CommentAnswers from "../component/Comments/CommentList";
-
-const dummyData = {
-  movies: [
-    {
-      id: 1,
-      name: "Fall",
-      image:
-        "https://resizing.flixster.com/ZLrK7Z-9s5SBmNTbTTn10HTELM0=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p176577_p_v10_ac.jpg",
-    },
-    {
-      id: 2,
-      name: "Solomon Kane",
-      image:
-        "https://resizing.flixster.com/ngeXAOYyG_OhwypP9TxXZb9Dy-0=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p8022770_p_v7_aj.jpg",
-    },
-    {
-      id: 3,
-      name: "The Forbidden Kingdom",
-      image:
-        "https://resizing.flixster.com/2UB2wjCooSKgsYX1ds_lVful3eo=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p173532_p_v10_ax.jpg",
-    },
-    {
-      id: 4,
-      name: "The Witches of Eastwick",
-      image:
-        "https://resizing.flixster.com/edCoXJESAiHxm_I9OglaQY2A7f8=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p10075_p_v10_ad.jpg",
-    },
-    {
-      id: 5,
-      name: "Miss Peregrine's Home For Peculiar Children",
-      image:
-        "https://resizing.flixster.com/a2m0wE6dyGt4beuKJJLQNiPIcEo=/fit-in/180x240/v2/https://resizing.flixster.com/WdXjAj2N97A_y9yLfR46bl1110Y=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzQwZjA0ZjI5LWJiYzctNGYxMy05MzJmLWZkY2MyYjZmNmMyZC53ZWJw",
-    },
-    {
-      id: 6,
-      name: "Lord of The Rings",
-      image:
-        "https://resizing.flixster.com/ZLrK7Z-9s5SBmNTbTTn10HTELM0=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p176577_p_v10_ac.jpg",
-    },
-    {
-      id: 7,
-      name: "Solomon Kane",
-      image:
-        "https://resizing.flixster.com/ngeXAOYyG_OhwypP9TxXZb9Dy-0=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p8022770_p_v7_aj.jpg",
-    },
-    {
-      id: 8,
-      name: "The Forbidden Kingdom",
-      image:
-        "https://resizing.flixster.com/2UB2wjCooSKgsYX1ds_lVful3eo=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p173532_p_v10_ax.jpg",
-    },
-    {
-      id: 9,
-      name: "The Witches of Eastwick",
-      image:
-        "https://resizing.flixster.com/edCoXJESAiHxm_I9OglaQY2A7f8=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p10075_p_v10_ad.jpg",
-    },
-    {
-      id: 10,
-      name: "Miss Peregrine's Home For Peculiar Children",
-      image:
-        "https://resizing.flixster.com/a2m0wE6dyGt4beuKJJLQNiPIcEo=/fit-in/180x240/v2/https://resizing.flixster.com/WdXjAj2N97A_y9yLfR46bl1110Y=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzQwZjA0ZjI5LWJiYzctNGYxMy05MzJmLWZkY2MyYjZmNmMyZC53ZWJw",
-    },
-  ],
-};
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllMovies, fetchSelectedMovie } from "../stores/Movies";
+import { useParams } from "react-router-dom";
 
 export default function ContentPage() {
+  const { contentName } = useParams();
+
+  const dispatch = useDispatch();
+  const { selectedMovie } = useSelector((state) => state.movies);
+
+  useEffect(() => {
+    dispatch(fetchSelectedMovie(contentName));
+  }, []);
+  console.log(selectedMovie);
+  if (!selectedMovie) {
+    return <div>LOADING...</div>;
+  }
+
   return (
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <ContentImage />
-          <HorizontalScrollView type="content" movies={dummyData.movies} />
+          {/* <div  style={{ display: "flex", flexDirection: "row" }}>
+            <Grid item xs={4}>
+              <ContentImage image={selectedMovie.image} />
+            </Grid>
+            <Grid item xs={8}>
+              <h1>Lord of The Ducks</h1>
+              <h3>Warner Bros.</h3>
+            </Grid>
+          </div> */}
+          <ContentImage image={selectedMovie.image} />
+          <HorizontalScrollView type="content" movies={selectedMovie.recommendedMovies} />
           <CommentSend />
-          <CommentAnswers />
+          <CommentAnswers comments={selectedMovie.comments} />
         </Grid>
         <Grid item xs={4}>
-          <ContentDetails></ContentDetails>
+          <ContentDetails details={selectedMovie}></ContentDetails>
         </Grid>
       </Grid>
     </Container>

@@ -4,11 +4,21 @@ import Button from "@mui/material/Button";
 
 import "./ContentDetails.scss";
 
-export default function ContentDetails() {
+function average(stars) {
+  var sum = 0;
+  for (var i = 0; i < stars.length; i++) sum += stars[i];
+  return parseFloat(sum / stars.length);
+}
+
+export default function ContentDetails(props) {
   const [value, setValue] = React.useState(2);
 
   return (
     <Card className="details-card">
+      <h2 style={{ marginBottom: "8px" }}>{props.details.name}</h2>
+      <div>
+         <span style={{ opacity: "0.6" }}>who shared: </span>{props.details.contentCreator}
+      </div>
       <Button className="play-button">Play</Button>
       {/* <Typography component="legend">Controlled</Typography>
       <Rating
@@ -20,22 +30,13 @@ export default function ContentDetails() {
         size="large"
       /> */}
       <Typography component="legend">Rating</Typography>
-      <Rating name="read-only" value={value} readOnly size="large" />
+      <Rating name="read-only" value={average(props.details.stars)} precision={0.1} readOnly size="large" />
 
       <div className="information">
         <h5 component="legend" className="title">
           Information about content:
         </h5>
-        <div className="text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis interdum turpis, eu efficitur tortor
-          tristique ac. Aliquam vestibulum purus pharetra aliquet aliquam. Integer commodo quam libero, nec sagittis mi
-          suscipit nec. Ut ullamcorper varius felis. Vestibulum vitae lorem ultrices, tempus sapien a, tempor nibh.
-          Aenean at est magna. Nunc suscipit libero non rhoncus lacinia. Suspendisse interdum congue finibus. In
-          tincidunt arcu ut nibh accumsan, et elementum tellus laoreet. Praesent justo urna, lobortis ac rhoncus non,
-          egestas in ipsum. Mauris a mi nec enim hendrerit porttitor sed eu dui. Fusce efficitur dictum metus quis
-          feugiat. Curabitur dignissim vestibulum tortor, vel feugiat massa lacinia et. Mauris imperdiet convallis
-          volutpat.
-        </div>
+        <div className="text">{props.details.text}</div>
       </div>
 
       {/* <Typography component="legend">Disabled</Typography>

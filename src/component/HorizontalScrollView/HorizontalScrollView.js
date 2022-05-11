@@ -15,8 +15,7 @@ export default function HorizontalScrollView(props) {
   const [position, setPosition] = React.useState(0);
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
-  const {contentName} = useParams()
-  console.log(contentName)
+
   const handleClick =
     (id) =>
     ({ getItemById, scrollToItem }) => {

@@ -9,7 +9,15 @@ export const fetchAllMovies = createAsyncThunk(
   async () => {
     const { data } = await axios.get(`${API_URL}/movies`)
     return data
-  }
+  },
+)
+
+export const fetchSelectedMovie = createAsyncThunk(
+  `${namespace}/fetchSelectedMovie`,
+  async (movieName) => {
+    const { data } = await axios.get(`${API_URL}/movies/${movieName}`)
+    return data
+  },
 )
 
 const MoviesSlice = createSlice({
@@ -17,7 +25,8 @@ const MoviesSlice = createSlice({
   initialState: {
     loading: null,
     movies: null,
-    errorMessage: null,
+    selectedMovie:null,
+    errorMessage: null
   },
   reducers: {},
   extraReducers: {
@@ -31,6 +40,10 @@ const MoviesSlice = createSlice({
     [fetchAllMovies.rejected](state, { error }) {
       state.loading = HTTP_STATUS.REJECTED
       state.errorMessage = error.message
+    },
+    [fetchSelectedMovie.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED
+      state.selectedMovie = payload
     },
   },
 })

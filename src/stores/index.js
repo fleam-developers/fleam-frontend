@@ -6,6 +6,7 @@ import MoviesReducer from "./Movies"
 import CreatorListReducer from "./CreatorList"
 import ReportListReducer from "./ReportList"
 import CommentListReducer from "./CommentList"
+import CategoriesReducer from "./Categories"
 
 export default configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export default configureStore({
     movies: MoviesReducer,
     creators: CreatorListReducer,
     reports: ReportListReducer,
-    comments: CommentListReducer
+    comments: CommentListReducer,
+    categories: CategoriesReducer
   },
 });

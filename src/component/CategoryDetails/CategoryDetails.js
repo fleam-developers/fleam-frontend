@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ContentCard from "../ContentCard/ContentCard";
 import CategoryGroup from "@mui/material/Card";
 import { Grid } from "@mui/material";
-import { fetchAllMovies } from "../../stores/Movies";
+import { fetchAllMovies, fetchSelectedMovie } from "../../stores/Movies";
 
 import "./CategoryDetails.scss";
 
@@ -12,7 +12,7 @@ export default function CategoryDetails() {
   //const [movies, setMovies] = React.useState(props.category);
 
   const dispatch = useDispatch();
-  const { loading, error, movies } = useSelector((state) => state.movies);
+  const { loading, error, movies, selectedMovie } = useSelector((state) => state.movies);
 
   useEffect(() => {
     dispatch(fetchAllMovies());

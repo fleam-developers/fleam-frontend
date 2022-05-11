@@ -36,7 +36,7 @@ export default function MainRouter() {
         <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*-?-*/}
         <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*-?-*/}
         <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*-?-*/}
-        <Route path="/profile/:usename" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />           {/*-?-*/}
+        <Route path="/profile/" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />                   {/*-?-*/}
         <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />                       {/*-?-*/}
         <Route path="/creator/:creatorName" element={<MainLayout><CreatorPage /></MainLayout>} />               {/*-?-*/}
         <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />                     {/**/}
