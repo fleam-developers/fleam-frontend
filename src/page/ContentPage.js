@@ -18,7 +18,7 @@ export default function ContentPage() {
   useEffect(() => {
     dispatch(fetchSelectedMovie(contentName));
   }, []);
-  console.log(selectedMovie);
+  
   if (!selectedMovie) {
     return <div>LOADING...</div>;
   }

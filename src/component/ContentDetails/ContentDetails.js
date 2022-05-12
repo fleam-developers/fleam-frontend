@@ -1,5 +1,6 @@
-import { Card, Rating, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { Card, Rating, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 
 import "./ContentDetails.scss";
@@ -11,15 +12,26 @@ function average(stars) {
 }
 
 export default function ContentDetails(props) {
+  const navigate = useNavigate();
+  const { contentName } = useParams();
   const [value, setValue] = React.useState(2);
-
+  
+  console.log(props.details);
   return (
     <Card className="details-card">
       <h2 style={{ marginBottom: "8px" }}>{props.details.name}</h2>
       <div>
-         <span style={{ opacity: "0.6" }}>who shared: </span>{props.details.contentCreator}
+        <span style={{ opacity: "0.6" }}>who shared: </span>
+        {props.details.contentCreator}
       </div>
-      <Button className="play-button">Play</Button>
+      <Button
+        className="play-button"
+        onClick={() => {
+          navigate(`/video/${props.details.id}`);
+        }}
+      >
+        Play
+      </Button>
       {/* <Typography component="legend">Controlled</Typography>
       <Rating
         name="simple-controlled"

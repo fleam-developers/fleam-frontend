@@ -1,5 +1,4 @@
 import React from "react";
-import {useParams} from "react-router-dom";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import axios from "axios";
 import { makeStyles } from "@mui/styles";

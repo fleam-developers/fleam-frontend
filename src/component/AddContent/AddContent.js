@@ -32,6 +32,19 @@ export default function AddContent() {
     }
     setSnackbarOpen(false);
   };
+  const handleClick = (e) => {
+    e.preventDefault()
+
+    const data = {
+      name: name,
+      category: category,
+      description: description,
+      photo: photo,
+      content: content
+    };
+
+    console.log(data)
+  }
 
   return (
     <div>
@@ -57,9 +70,9 @@ export default function AddContent() {
                 variant="contained"
                 color="primary"
                 className="submit"
-                
+                onClick={handleClick}
               >
-                UPDATE YOUR PROFILE
+                Add New Content
               </Button>
             </form>
           </div>

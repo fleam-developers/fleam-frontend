@@ -1,27 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import { Form, Input } from "reactstrap";
 import { Collapse } from "react-collapse";
+import { Alert, Button } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { addNewComment } from "../../stores/CommentList";
+import { useParams } from "react-router-dom";
 
 import "./CommentSend.scss";
-import { Alert, Button } from "@mui/material";
-
 export default function CommentSend() {
+  const { contentName } = useParams();
   const [questionList, setQuestionList] = useState();
   const [isOpen, setIsOpen] = useState(false);
+  const [username, setUsername] = useState("Test User");
   const [commentText, setCommentText] = useState("");
-  const [selectedQuestion, setSelectedQuestion] = useState("");
   const [trigger, setTrigger] = useState("");
   const [alert, setAlert] = useState("");
-  const [message, setMessage] = useState("");
 
   const toggle = () => {
     console.log(isOpen);
     setIsOpen(!isOpen);
   };
 
+  const dispatch = useDispatch();
+  // const { selectedMovie } = useSelector((state) => state.movies);
+
+  useEffect(() => {}, []);
+
   const handleSubmit = (e) => {
+    
+    const commentData = {
+      username: username,
+      text: commentText
+    };
+    //dispatch(addNewComment({contentName, commentData}))
     e.preventDefault();
+    // dispatch(addNewComment(contentName));
     // const config = {
     //   headers: {
     //     Authorization: "Bearer " + localStorage.getItem("token"),
@@ -64,7 +78,7 @@ export default function CommentSend() {
 
   const writeComment = () => {
     return (
-      <Form className="myForm" onSubmit={handleSubmit}>
+      <Form className="myForm">
         <div className="inputContainer">
           {/* <Label htmlFor="questionText" className={styles.icon}>
               Name
@@ -80,7 +94,9 @@ export default function CommentSend() {
           />
         </div>
         <div className="buttonPosition">
-          <Button className="sendButton">{"Send Comment >"}</Button>
+          <Button className="sendButton" onClick={handleSubmit}>
+            {"Send Comment >"}
+          </Button>
         </div>
 
         {alert === "errorComment" ? (
