@@ -20,6 +20,29 @@ export const fetchSelectedMovie = createAsyncThunk(
   },
 )
 
+export const addNewMovie = createAsyncThunk(
+  `${namespace}/addNewMovie`,
+  async (contentData) => {
+    console.log(contentData)
+    axios.post(`${API_URL}/movies/`, contentData)
+  },
+)
+
+export const addNewMovie2 = createAsyncThunk(
+  `${namespace}/addNewMovie`,
+  async (obj) => {
+    const {contentName, commentData} = obj;
+    console.log(contentName, commentData)
+    const { data } = axios.get(`${API_URL}/movies/`)
+    console.log(data)
+    axios.post(`${API_URL}/movies/${contentName}`, commentData)
+    console.log("function work")
+    //console.log(data)
+    // const { data } = await axios.get(`${API_URL}/movies`, )
+    return data;
+  }
+)
+
 const MoviesSlice = createSlice({
   name: namespace,
   initialState: {

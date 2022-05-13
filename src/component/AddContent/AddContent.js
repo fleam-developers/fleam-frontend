@@ -14,6 +14,8 @@ import { AuthService } from "../../service/AuthService";
 import FormItem from "../Common/FormItem";
 
 import "./AddContent.scss";
+import { useDispatch } from "react-redux";
+import { addNewMovie } from "../../stores/Movies";
 
 export default function AddContent() {
   const [name, setName] = React.useState("");
@@ -25,7 +27,10 @@ export default function AddContent() {
   const [open, setSnackbarOpen] = React.useState(false);
   const [severity, setSnackbarSeverity] = React.useState("success");
   const [snackbarMessage, setSnackbarMessage] = React.useState("");
-
+  
+  
+  const dispatch = useDispatch();
+  const creator = "sample creator"
   const handleSnackbarClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -35,15 +40,17 @@ export default function AddContent() {
   const handleClick = (e) => {
     e.preventDefault()
 
-    const data = {
+    const movieData = {
       name: name,
+      contentCreator: creator,
       category: category,
-      description: description,
-      photo: photo,
+      text: description,
+      image: photo,
       content: content
     };
 
-    console.log(data)
+    dispatch(addNewMovie(movieData))
+
   }
 
   return (
