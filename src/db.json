@@ -418,7 +418,7 @@
       "contentCreator": "sample creator",
       "category": "fantasy",
       "text": "sampklase fdaj lgvdn bmngtfepsbw bhmfğwsmbnhğ bmgğmwsğbhmbm sampklase fdaj lgvdn bmngtfepsbw bhmfğwsmbnhğ bmgğmwsğbhmbmsampklase fdaj lgvdn bmngtfepsbw bhmfğwsmbnhğ bmgğmwsğbhmbm sampklase fdaj lgvdn bmngtfepsbw bhmfğwsmbnhğ bmgğmwsğbhmbm",
-      "image": "C:\\fakepath\\theatre-g57355ff19_1920.jpg",
+      "image": "https://resizing.flixster.com/a2m0wE6dyGt4beuKJJLQNiPIcEo=/fit-in/180x240/v2/https://resizing.flixster.com/WdXjAj2N97A_y9yLfR46bl1110Y=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzQwZjA0ZjI5LWJiYzctNGYxMy05MzJmLWZkY2MyYjZmNmMyZC53ZWJw",
       "content": "",
       "id": 16
     }
@@ -444,6 +444,160 @@
       "subTitle": "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
       "image": "https://react-netflix-clone-beta.vercel.app/images/misc/home-tv.jpg",
       "alt": "Tiger King on Netflix"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "jackdorsey",
+      "email": "jackdorsey@gmail.com",
+      "password": "12345678",
+      "image": "https://react-netflix-clone-beta.vercel.app/images/misc/home-imac.jpg"
+    },
+    {
+      "id": 2,
+      "username": "elonmusk",
+      "email": "elonmusk@gmail.com",
+      "password": "12345678",
+      "image": "https://react-netflix-clone-beta.vercel.app/images/misc/home-mobile.jpg"
+    },
+    {
+      "email": "berkaygeyik@gmail.com",
+      "username": "berkaygeyik",
+      "password": "12345678",
+      "id": 3
+    },
+    {
+      "email": "saas",
+      "username": "ber",
+      "password": "sadsdasad",
+      "id": 4
+    },
+    {
+      "email": "asasd",
+      "username": "sasdsad",
+      "password": "sadsadasd",
+      "id": 5
+    },
+    {
+      "email": "dsaasdsad",
+      "username": "sadsdas",
+      "password": "sadsdasads",
+      "id": 6
+    },
+    {
+      "email": "deneme",
+      "username": "deneme",
+      "password": "deneme",
+      "id": 7
+    },
+    {
+      "email": "deneme",
+      "username": "deneme",
+      "password": "deneme",
+      "id": 8
+    },
+    {
+      "email": "berkay",
+      "username": "berkay",
+      "password": "berkay",
+      "id": 9
+    },
+    {
+      "email": "sadsad",
+      "username": "sadsa",
+      "password": "sadasds",
+      "id": 10
+    },
+    {
+      "email": "sadsadasd",
+      "username": "sadasdasdasd",
+      "password": "sadasdas",
+      "id": 11
+    },
+    {
+      "email": "asasdasd",
+      "username": "sdasadas",
+      "password": "asdasdasdsd",
+      "id": 12
+    },
+    {
+      "email": "assdaasd",
+      "username": "sasadsd",
+      "password": "asasdasdads",
+      "id": 13
+    },
+    {
+      "email": "sadasdsa",
+      "username": "sadsdaasd",
+      "password": "sadasdasdsad",
+      "id": 14
+    },
+    {
+      "email": "saasdasd",
+      "username": "sadasa",
+      "password": "asdasd",
+      "id": 15
+    },
+    {
+      "email": "asdsaasdd",
+      "username": "sdaasdasdds",
+      "password": "sadsadasda",
+      "id": 16
+    },
+    {
+      "email": "assadsdaasd",
+      "username": "sdasdaasdasd",
+      "password": "sadsadsdasaddsa",
+      "id": 17
+    },
+    {
+      "email": "sadsadasd",
+      "username": "sadsadsda",
+      "password": "sadsadsdsa",
+      "id": 18
+    },
+    {
+      "email": "sadasasd",
+      "username": "sdasdadsaasd",
+      "password": "sadsasadsa",
+      "id": 19
+    },
+    {
+      "email": "ssasd",
+      "username": "assa",
+      "password": "sadsdas",
+      "id": 20
+    },
+    {
+      "email": "assadasd",
+      "username": "assad",
+      "password": "sadasdasd",
+      "id": 21
+    },
+    {
+      "email": "sampleuser@gmail.com",
+      "username": "SampleUser",
+      "password": "12345678",
+      "id": 22
+    },
+    {
+      "email": "ssadasdsad",
+      "username": "sadsdsad",
+      "password": "sadasd",
+      "id": 23
+    },
+    {
+      "email": "sadsadasdasd",
+      "username": "sadasdsdasad",
+      "password": "sadasdasdsa",
+      "id": 24
+    },
+    {
+      "email": "aaaa",
+      "username": "aaaaa",
+      "password": "aaaaaa",
+      "id": 25
     }
   ]
 }

@@ -7,6 +7,7 @@ import CreatorListReducer from "./CreatorList"
 import ReportListReducer from "./ReportList"
 import CommentListReducer from "./CommentList"
 import CategoriesReducer from "./Categories"
+import AuthenticationReducer from "./Authentication";
 
 export default configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export default configureStore({
     creators: CreatorListReducer,
     reports: ReportListReducer,
     comments: CommentListReducer,
-    categories: CategoriesReducer
+    categories: CategoriesReducer,
+    authentication: AuthenticationReducer
   },
 });

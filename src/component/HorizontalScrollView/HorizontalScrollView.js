@@ -37,7 +37,7 @@ export default function HorizontalScrollView(props) {
       {props.type === "category" ? <div className="title category">{props.name}</div> : null}
       {props.type === "creator" ? <div className="title category">Manage Your Contents</div> : null}
       {props.type === "content" ? <div className="title recommended">Recommended</div> : null}
-      {props.type === "search" ? <div className="title recommended"></div> : null}
+      {props.type === "search" ? <div className="title category">{props.name}</div> : null}
       
       
       <ScrollMenu

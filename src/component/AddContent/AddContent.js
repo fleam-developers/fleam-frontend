@@ -60,7 +60,7 @@ export default function AddContent() {
           <CssBaseline />
           <div className="paper">
             <Typography component="h1" variant="h5">
-              Update Your Profile
+              Add New Content
             </Typography>
             <form className="form" noValidate>
               <Grid container spacing={2}>
