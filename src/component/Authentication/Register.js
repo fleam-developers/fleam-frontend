@@ -22,7 +22,8 @@ import "./Auth.scss";
 
 export default function RegisterPage() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  
   const [password, setPassword] = React.useState("");
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -31,7 +32,7 @@ export default function RegisterPage() {
   const [severity, setSnackbarSeverity] = React.useState("success");
   const [snackbarMessage, setSnackbarMessage] = React.useState("");
 
-  const dispatch = useDispatch();
+  
 
   const { loading, errorMessage, userList } = useSelector((state) => state.authentication);
   console.log(userList);

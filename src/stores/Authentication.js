@@ -15,9 +15,16 @@ export const fetchSelectedUser = createAsyncThunk(`${namespace}/fetchSelectedUse
 });
 
 export const register = createAsyncThunk(`${namespace}/register`, async (userData) => {
-  const {data} = await axios.post(`${API_URL}/users/`, userData);
-//   console.log(data)
+  const { data } = await axios.post(`${API_URL}/users`, userData);
+  //   console.log(data)
   return data;
+});
+
+export const login = createAsyncThunk(`${namespace}/login`, async (userData) => {
+  //const { data } = await axios.post(`${API_URL}/login`, userData);
+  //   console.log(data)
+  // userTypes: user, creator, admin
+  return { token: "Bearer AbCdEf123456", username: userData.username, userType: "user" };
 });
 
 const AuthenticationSlice = createSlice({
@@ -26,9 +33,31 @@ const AuthenticationSlice = createSlice({
     loading: null,
     userList: null,
     selectedUser: null,
+    loggedUser: null,
+    isLogged: false,
     errorMessage: null,
   },
-  reducers: {},
+  reducers: {
+    getLoggedUser(state) {
+      const data = {
+        username: localStorage.getItem("username"),
+        userType: localStorage.getItem("userType"),
+        token: localStorage.getItem("token"),
+      };
+      state.loggedUser = data;
+      state.isLogged = localStorage.getItem("token") ? true : false;
+    },
+    logout(state) {
+      localStorage.clear();
+      const data = {
+        username: null,
+        userType: null,
+        token: null,
+      };
+      state.loggedUser = data;
+      state.isLogged = false;
+    },
+  },
   extraReducers: {
     [fetchAllUsers.pending](state) {
       state.loading = HTTP_STATUS.PENDING;
@@ -45,7 +74,14 @@ const AuthenticationSlice = createSlice({
       state.loading = HTTP_STATUS.FULFILLED;
       state.selectedUser = payload;
     },
+    [login.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED;
+      state.loggedUser = payload;
+      state.isLogged = true;
+    },
   },
 });
+
+export const { getLoggedUser } = AuthenticationSlice.actions;
 
 export default AuthenticationSlice.reducer;

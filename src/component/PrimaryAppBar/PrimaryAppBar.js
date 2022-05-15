@@ -8,7 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { AccountCircle, ExitToApp, PermIdentity } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { InputBase } from "@mui/material";
-import { AuthService } from "../../service/AuthService";
+//import { AuthService } from "../../service/AuthService";
 import Logo from "../Logo/Logo";
 import { useDispatch, connect, useSelector } from "react-redux";
 import { setDarkMode, setLanguage } from "../../stores/Site";
@@ -19,12 +19,10 @@ import "./PrimaryAppBar.scss";
 import "../Headers/Headers.scss";
 import { fetchDashboardData } from "../../stores/dashboardSlice";
 
-
-
 function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
   const navigate = useNavigate();
-
-
+  const data = useSelector((state) => state);
+  console.log(data);
   // const dispatch = useDispatch();
 
   // useEffect(() => {
@@ -32,8 +30,8 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
   // }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [userLoggedIn, setUserLoggedIn] = useState(AuthService.hasLoggedIn());
-
+  //const [userLoggedIn, setUserLoggedIn] = useState(AuthService.hasLoggedIn());
+  const { loggedUser, isLogged } = useSelector((state) => state.authentication);
 
   return (
     <div className="grow">
@@ -46,7 +44,7 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
             className="title"
             onClick={() => navigate("/feed/Popular")}
           ></Typography>
-          {userLoggedIn ? (
+          {isLogged ? (
             <div className="search">
               <div className="searchIcon">
                 <SearchIcon />
@@ -73,44 +71,66 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
             {dark ? <Brightness7Icon /> : <Brightness4Icon />}
           </Button>
 
-          <Button
-            className="button"
-            color="primary"
-            variant="raised"
-            onClick={() => {
-              navigate("/register");
-            }}
-          >
-            {userLoggedIn ? null : (
-              <>
-                {" "}
-                Register <PermIdentity />
-              </>
-            )}
-          </Button>
-          <Button
-            className="button"
-            variant="raised"
-            onClick={() => {
-              if (userLoggedIn) {
-                navigate(`/profile/${AuthService.getUsername()}`);
-              } else {
-                navigate("/login");
-              }
-            }}
-          >
-            {userLoggedIn ? (
-              <>
-                Profile
+          {isLogged ? (
+            <>
+              <Button variant="raised" onClick={() => navigate(`/profile`)}>
                 <AccountCircle />
-              </>
-            ) : (
-              <>
-                {" "}
-                Login <ExitToApp />
-              </>
-            )}
-          </Button>
+              </Button>
+              {loggedUser === "user" ? (
+                <Button className="button" variant="raised" onClick={() => navigate(`/profile`)}>
+                  Be Creator
+                </Button>
+              ) : null}
+              {loggedUser === "creator" ? (
+                <Button variant="raised" onClick={() => navigate(`/profile`)}>
+                  <AccountCircle />
+                </Button>
+              ) : null}
+              {loggedUser === "admin" ? (
+                <Button variant="raised" onClick={() => navigate(`/profile`)}>
+                  <AccountCircle />
+                </Button>
+              ) : null}
+            </>
+          ) : (
+            <>
+              <Button
+                className="button"
+                color="primary"
+                variant="raised"
+                onClick={() => {
+                  navigate("/register");
+                }}
+              >
+                Register &nbsp; <PermIdentity />
+              </Button>
+              <Button
+                className="button"
+                variant="raised"
+                onClick={() => {
+                  navigate("/login");
+                  // if (isLogged) {
+                  //   //navigate(`/profile/${AuthService.getUsername()}`);
+                  // } else {
+                  //   navigate("/login");
+                  // }
+                }}
+              >
+                Login &nbsp; <ExitToApp />
+                {/* {isLogged ? (
+                  <>
+                    Profile
+                    <AccountCircle />
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                    Login <ExitToApp />
+                  </>
+                )} */}
+              </Button>
+            </>
+          )}
         </Toolbar>
       </AppBar>
     </div>
@@ -127,7 +147,7 @@ const mapDispatchToProps = (dispatch) => {
     // dispatching plain actions
     setDarkMode: () => dispatch(setDarkMode()),
     setLanguage: () => dispatch(setLanguage()),
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PrimaryAppBar);

@@ -5,7 +5,8 @@ import { createTheme, ThemeProvider} from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import './App.scss';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getLoggedUser } from "./stores/Authentication";
 
 export const darkTheme = {
   palette: {
@@ -45,7 +46,13 @@ function App() {
   const { dark } = useSelector((state) => state.site);
 
   const theme = React.useMemo(() => createTheme(dark ? darkTheme : lightTheme));
+  
+  const dispatch = useDispatch()
 
+  useEffect(() => {
+    dispatch(getLoggedUser());
+  }, []);
+  
 
   return (
     <ThemeProvider theme={theme}>
