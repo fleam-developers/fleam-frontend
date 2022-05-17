@@ -21,16 +21,13 @@
     flex-grow: 1;
     position: relative;
     border-radius: 5px;
-    // [theme.breakpoints.up("sm")]: {
-    //   marginLeft: theme.spacing('50px');
-    //   marginRight: theme.spacing('50px');
-    //   width: "auto",
-    // },
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     .searchIcon {
       padding: 8px 16px;
       height: 100%;
-      position: absolute;
-      pointer-events: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,13 +38,8 @@
     }
     .searchInput {
       padding: 8px 8px 8px 0;
-      // vertical padding + font size from searchIcon
       padding-left: 1em;
-      //transition: theme.transitions.create("width");
-      width: 100%;
-      // [theme.breakpoints.up("md")]: {
-      //   width: "20ch",
-      // },
+      width: 50%;
     }
   }
 }

@@ -12,6 +12,15 @@ export const fetchAllCategories = createAsyncThunk(
   }
 )
 
+export const fetchSearchedCategories = createAsyncThunk(
+  `${namespace}/fetchSearchedCategories`,
+  async (obj) => {
+    console.log(obj)
+    const { data } = await axios.get(`${API_URL}/categories`)
+    return data
+  }
+)
+
 const CategoriesSlice = createSlice({
   name: namespace,
   initialState: {
@@ -31,6 +40,10 @@ const CategoriesSlice = createSlice({
     [fetchAllCategories.rejected](state, { error }) {
       state.loading = HTTP_STATUS.REJECTED
       state.errorMessage = error.message
+    },
+    [fetchSearchedCategories.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED
+      state.categories = payload
     },
   },
 })

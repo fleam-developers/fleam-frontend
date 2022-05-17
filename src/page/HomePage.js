@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import HorizontalScrollViews from "../component/HorizontalScrollView/HorizontalScrollViews";
+import { fetchAllCategories } from "../stores/Categories";
 
-/*
-We should generate HorizontalScrollViews into a container
-We should generate Cards into every HorizontalScrollView
-
-Card should contain these things:
-- Image
-- Title
-
-*/
 
 export default function HomePage() {
+  
+  const { loading, error, categories } = useSelector((state) => state.categories);
+
+  const dispatch = useDispatch();
+  
+
+  useEffect(() => {
+    dispatch(fetchAllCategories());
+  }, []);
+
   return (
     <div>
-      <HorizontalScrollViews type="home"  />
+      <HorizontalScrollViews type="home" movies={categories}  />
     </div>
   );
 }

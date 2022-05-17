@@ -62,10 +62,17 @@ export default function LoginPage() {
       };
 
       dispatch(login(data)).then((res) => {
-        console.log(res)
-        localStorage.setItem("token", res.payload.token);
-        localStorage.setItem("username", res.payload.username);
-      })
+        console.log(res);
+
+        if (res.payload) {
+          localStorage.setItem("token", res.payload.token);
+          localStorage.setItem("username", res.payload.username);
+          localStorage.setItem("userType", res.payload.userType);
+          navigate("/browse");
+        } else {
+          console.log(res.error.message);
+        }
+      });
 
       // axios
       //   .post("/login", data)

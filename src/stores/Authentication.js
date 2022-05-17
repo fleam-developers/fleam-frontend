@@ -24,7 +24,7 @@ export const login = createAsyncThunk(`${namespace}/login`, async (userData) => 
   //const { data } = await axios.post(`${API_URL}/login`, userData);
   //   console.log(data)
   // userTypes: user, creator, admin
-  return { token: "Bearer AbCdEf123456", username: userData.username, userType: "user" };
+  return { token: "Bearer AbCdEf123456", username: userData.username, userType: "creator" };
 });
 
 const AuthenticationSlice = createSlice({
@@ -49,12 +49,7 @@ const AuthenticationSlice = createSlice({
     },
     logout(state) {
       localStorage.clear();
-      const data = {
-        username: null,
-        userType: null,
-        token: null,
-      };
-      state.loggedUser = data;
+      state.loggedUser = null;
       state.isLogged = false;
     },
   },
@@ -82,6 +77,6 @@ const AuthenticationSlice = createSlice({
   },
 });
 
-export const { getLoggedUser } = AuthenticationSlice.actions;
+export const { getLoggedUser, logout } = AuthenticationSlice.actions;
 
 export default AuthenticationSlice.reducer;

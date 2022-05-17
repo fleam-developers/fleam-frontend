@@ -34,7 +34,7 @@ export default function LandingPage() {
     return (
         <div>
             <LandingHeader/>
-            <Counter></Counter>
+            {/* <Counter></Counter> */}
             {/* <Dashboard></Dashboard> */}
             <JumboItems items={dummyData} />
         </div>

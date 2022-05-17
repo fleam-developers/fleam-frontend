@@ -5,9 +5,9 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
-import { AccountCircle, ExitToApp, PermIdentity } from "@mui/icons-material";
+import { Add, Logout, AccountCircle, ExitToApp, PermIdentity } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { InputBase } from "@mui/material";
+import { IconButton, InputBase } from "@mui/material";
 //import { AuthService } from "../../service/AuthService";
 import Logo from "../Logo/Logo";
 import { useDispatch, connect, useSelector } from "react-redux";
@@ -17,21 +17,32 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 
 import "./PrimaryAppBar.scss";
 import "../Headers/Headers.scss";
-import { fetchDashboardData } from "../../stores/dashboardSlice";
+import { logout } from "../../stores/Authentication";
 
 function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
   const navigate = useNavigate();
-  const data = useSelector((state) => state);
-  console.log(data);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   console.log(dispatch(fetchDashboardData()));
-  // }, []);
+  // const data = useSelector((state) => state);
+  // console.log(data);
 
   const [searchQuery, setSearchQuery] = useState("");
-  //const [userLoggedIn, setUserLoggedIn] = useState(AuthService.hasLoggedIn());
+
   const { loggedUser, isLogged } = useSelector((state) => state.authentication);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setSearchQuery("")
+      navigate(`/search/${searchQuery.trim()}`);
+      
+    }
+  };
 
   return (
     <div className="grow">
@@ -45,25 +56,32 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
             onClick={() => navigate("/feed/Popular")}
           ></Typography>
           {isLogged ? (
-            <div className="search">
-              <div className="searchIcon">
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search anything…"
-                className="searchInputRoot searchInput"
-                onChange={(event) => {
-                  setSearchQuery(event.target.value);
-                }}
-                onKeyUp={(event) => {
-                  if (event.key === "Enter") {
-                    event.preventDefault();
+            <>
+              <div className="search">
+                <InputBase
+                  placeholder="Search anything…"
+                  className="searchInputRoot searchInput"
+                  value={searchQuery}
+                  onChange={(event) => {
+                    setSearchQuery(event.target.value);
+                  }}
+                  onKeyUp={(event) => {
+                    if (event.key === "Enter") {
+                      handleSearch(event);
+                    }
+                  }}
+                  inputProps={{ "aria-label": "search" }}
+                />
+
+                <IconButton
+                  onClick={() => {
                     navigate(`/search/${searchQuery}`);
-                  }
-                }}
-                inputProps={{ "aria-label": "search" }}
-              />
-            </div>
+                  }}
+                >
+                  <SearchIcon />
+                </IconButton>
+              </div>
+            </>
           ) : (
             <div className="search" />
           )}
@@ -76,17 +94,29 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
               <Button variant="raised" onClick={() => navigate(`/profile`)}>
                 <AccountCircle />
               </Button>
-              {loggedUser === "user" ? (
-                <Button className="button" variant="raised" onClick={() => navigate(`/profile`)}>
+              <Button variant="raised" onClick={handleLogout}>
+                <Logout />
+              </Button>
+              {loggedUser && loggedUser.userType === "user" ? (
+                <Button className="button" variant="raised" onClick={() => navigate(`/be-creator`)}>
                   Be Creator
                 </Button>
               ) : null}
-              {loggedUser === "creator" ? (
-                <Button variant="raised" onClick={() => navigate(`/profile`)}>
-                  <AccountCircle />
-                </Button>
+              {loggedUser && loggedUser.userType === "creator" ? (
+                <>
+                  <Button
+                    className="button"
+                    variant="raised"
+                    onClick={() => navigate(`/creator/${loggedUser.username}`)}
+                  >
+                    My Contents
+                  </Button>
+                  <Button className="button" variant="raised" onClick={() => navigate(`/profile`)}>
+                    Add Content +
+                  </Button>
+                </>
               ) : null}
-              {loggedUser === "admin" ? (
+              {loggedUser && loggedUser.userType === "admin" ? (
                 <Button variant="raised" onClick={() => navigate(`/profile`)}>
                   <AccountCircle />
                 </Button>

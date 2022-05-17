@@ -17,12 +17,14 @@
   flex-grow: 1;
   position: relative;
   border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 .grow .search .searchIcon {
   padding: 8px 16px;
   height: 100%;
-  position: absolute;
-  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +35,7 @@
 .grow .search .searchInput {
   padding: 8px 8px 8px 0;
   padding-left: 1em;
-  width: 100%;
+  width: 50%;
 }
 
 /*# sourceMappingURL=PrimaryAppBar.css.map */

@@ -10,20 +10,20 @@ import "./HorizontalScrollView.scss";
 
 export default function HorizontalScrollView(props) {
   const [items, setItems] = React.useState(props.movies);
-  const [selected, setSelected] = React.useState([]);
-  const [position, setPosition] = React.useState(0);
+  // const [selected, setSelected] = React.useState([]);
+  // const [position, setPosition] = React.useState(0);
 
-  const isItemSelected = (id) => !!selected.find((el) => el === id);
+  // const isItemSelected = (id) => !!selected.find((el) => el === id);
 
-  const handleClick =
-    (id) =>
-    ({ getItemById, scrollToItem }) => {
-      const itemSelected = isItemSelected(id);
+  // const handleClick =
+  //   (id) =>
+  //   ({ getItemById, scrollToItem }) => {
+  //     const itemSelected = isItemSelected(id);
 
-      setSelected((currentSelected) =>
-        itemSelected ? currentSelected.filter((el) => el !== id) : currentSelected.concat(id)
-      );
-    };
+  //     setSelected((currentSelected) =>
+  //       itemSelected ? currentSelected.filter((el) => el !== id) : currentSelected.concat(id)
+  //     );
+  //   };
 
   return (
     <CategoryGroup className="categoryGroup">
@@ -54,7 +54,7 @@ export default function HorizontalScrollView(props) {
             itemId={item.id}
             title={item.name}
             key={item.id}
-            selected={isItemSelected(item.id)}
+            // selected={isItemSelected(item.id)}
             recommended= {props.type === "content" ? true : false}
             imageSource={item.image}
             imageAlt={item.name}
