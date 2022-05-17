@@ -11,6 +11,10 @@
   margin: 0 0 32px 64px;
   font-size: 2rem;
 }
+.categoryGroup .link {
+  cursor: pointer;
+  width: max-content;
+}
 .categoryGroup .recommended {
   padding-top: 16px;
   margin: 0 0 16px 64px;

@@ -38,9 +38,8 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      setSearchQuery("")
+      setSearchQuery("");
       navigate(`/search/${searchQuery.trim()}`);
-      
     }
   };
 
@@ -111,14 +110,14 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
                   >
                     My Contents
                   </Button>
-                  <Button className="button" variant="raised" onClick={() => navigate(`/profile`)}>
+                  <Button className="button" variant="raised" onClick={() => navigate(`/add-content`)}>
                     Add Content +
                   </Button>
                 </>
               ) : null}
               {loggedUser && loggedUser.userType === "admin" ? (
-                <Button variant="raised" onClick={() => navigate(`/profile`)}>
-                  <AccountCircle />
+                <Button className="button" variant="raised" onClick={() => navigate(`/admin`)}>
+                  Admin
                 </Button>
               ) : null}
             </>

@@ -28,13 +28,13 @@ export default function MainRouter() {
     <Router>
       <Routes>
         <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />                             {/*-?-*/}
-        <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />                                {/*content card üzeinde recommendation yüzdesi ve yıldızlar gösterilebilir*/}
+        <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />                                {/*navbar tamamlandı, bitti gibi*/}
         <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*-?-*/}
         <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*-?-*/}
         <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*-?-*/}
         <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*---*/}
         <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*-?-*/}
-        <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*-?-*/}
+        <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*category yönlendirmeleri yapıldı, doğru şekilde aktarıldı, bitti gibi*/}
         <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*comment ekleme konusunda herşey hazır, backendden gelene göre bağlanacak*/}
         <Route path="/profile/" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />                   {/*-?-*/}
         <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />                       {/*-?-*/}

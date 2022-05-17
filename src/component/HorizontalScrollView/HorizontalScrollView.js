@@ -5,10 +5,12 @@ import { makeStyles } from "@mui/styles";
 import ContentCard from "../ContentCard/ContentCard";
 import { LeftArrow, RightArrow } from "./Arrow";
 import CategoryGroup from "@mui/material/Card";
+import { useNavigate } from "react-router-dom";
 
 import "./HorizontalScrollView.scss";
 
 export default function HorizontalScrollView(props) {
+  const navigate = useNavigate();
   const [items, setItems] = React.useState(props.movies);
   // const [selected, setSelected] = React.useState([]);
   // const [position, setPosition] = React.useState(0);
@@ -33,13 +35,21 @@ export default function HorizontalScrollView(props) {
         props.type ? <div className="title category">Manage Your Contents</div> : <div className="title recommended">Recommended</div>
       )} */}
 
-      {props.type === "home" ? <div className="title category">{props.name}</div> : null}
+      {props.type === "home" ? (
+        <div
+          className="title category link"
+          onClick={() => {
+            navigate(`/category/${props.id}`);
+          }}
+        >
+          {props.name}
+        </div>
+      ) : null}
       {props.type === "category" ? <div className="title category">{props.name}</div> : null}
       {props.type === "creator" ? <div className="title category">Manage Your Contents</div> : null}
       {props.type === "content" ? <div className="title recommended">Recommended</div> : null}
       {props.type === "search" ? <div className="title category">{props.name}</div> : null}
-      
-      
+
       <ScrollMenu
         LeftArrow={LeftArrow}
         RightArrow={RightArrow}
@@ -55,7 +65,7 @@ export default function HorizontalScrollView(props) {
             title={item.name}
             key={item.id}
             // selected={isItemSelected(item.id)}
-            recommended= {props.type === "content" ? true : false}
+            recommended={props.type === "content" ? true : false}
             imageSource={item.image}
             imageAlt={item.name}
           ></ContentCard>

@@ -15,8 +15,17 @@ export const fetchAllCategories = createAsyncThunk(
 export const fetchSearchedCategories = createAsyncThunk(
   `${namespace}/fetchSearchedCategories`,
   async (obj) => {
-    console.log(obj)
     const { data } = await axios.get(`${API_URL}/categories`)
+    return data
+  }
+)
+
+export const fetchSelectedCategory = createAsyncThunk(
+  `${namespace}/fetchSelectedCategory`,
+  async (obj) => {
+    console.log(obj)
+    const { data } = await axios.get(`${API_URL}/categories/${obj}`)
+    console.log(data)
     return data
   }
 )
@@ -26,6 +35,7 @@ const CategoriesSlice = createSlice({
   initialState: {
     loading: null,
     categories: null,
+    selectedCategory: null,
     errorMessage: null,
   },
   reducers: {},
@@ -44,6 +54,10 @@ const CategoriesSlice = createSlice({
     [fetchSearchedCategories.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED
       state.categories = payload
+    },
+    [fetchSelectedCategory.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED
+      state.selectedCategory = payload
     },
   },
 })
