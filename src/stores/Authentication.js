@@ -28,7 +28,13 @@ export const login = createAsyncThunk(`${namespace}/login`, async (userData) => 
   //const { data } = await axios.post(`${API_URL}/login`, userData);
   //   console.log(data)
   // userTypes: user, creator, admin
-  return { token: "Bearer AbCdEf123456", username: userData.username, userType: "creator" };
+  return { token: "Bearer AbCdEf123456", username: userData.username, userType: "user" };
+});
+
+export const beCreator = createAsyncThunk(`${namespace}/beCreator`, async () => {
+  //const { data } = await axios.post(`${API_URL}/login`, userData);
+  //   console.log(data)
+  // userTypes: user, creator, admin
 });
 
 const AuthenticationSlice = createSlice({
@@ -77,6 +83,16 @@ const AuthenticationSlice = createSlice({
       state.loading = HTTP_STATUS.FULFILLED;
       state.loggedUser = payload;
       state.isLogged = true;
+    },
+    [beCreator.fulfilled](state) {
+      const data = {
+        username: localStorage.getItem("username"),
+        userType: "creator",
+        token: localStorage.getItem("token"),
+      };
+      console.log(data)
+      state.loading = HTTP_STATUS.FULFILLED;
+      state.loggedUser = data;
     },
   },
 });

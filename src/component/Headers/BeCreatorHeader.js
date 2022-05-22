@@ -6,10 +6,18 @@ import Card from "@mui/material/Card";
 import background from "../../img/cinema2.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewCreator, fetchAllCreators } from "../../stores/CreatorList";
+import { beCreator } from "../../stores/Authentication";
 
 export default function BeCreatorHeader() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const handleSubmit = () => {
+    if (loggedUser.userType === "user") {
+      dispatch(beCreator());
+      navigate(`/creator/${loggedUser.username}`);
+    }
+  }
 
   const { loggedUser } = useSelector((state) => state.authentication);
 
@@ -33,12 +41,7 @@ export default function BeCreatorHeader() {
 
         <Button
           className="header-button"
-          onClick={() => {
-            if (loggedUser.userType === "user") {
-              addNewCreator(loggedUser.username);
-              navigate("/creator");
-            }
-          }}
+          onClick={handleSubmit}
         >
           Be Creator
         </Button>

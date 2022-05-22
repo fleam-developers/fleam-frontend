@@ -37,8 +37,8 @@ export default function MainRouter() {
         <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*category yönlendirmeleri yapıldı, doğru şekilde aktarıldı, bitti gibi*/}
         <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*comment ekleme konusunda herşey hazır, backendden gelene göre bağlanacak, update yok şuan*/}
         <Route path="/profile" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />                    {/*-?-*/}
-        <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />                       {/*-?-*/}
-        <Route path="/creator/:creatorName" element={<MainLayout><CreatorPage /></MainLayout>} />               {/*-?-*/}
+        <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />                       {/*axios eklenmedi, uygun değişim yapılıyor, axios eklendiğinde backennden gelen veri otomatik güncelleniyor mu check edilecek*/}
+        <Route path="/creator/:creatorName" element={<MainLayout><CreatorPage /></MainLayout>} />               {/*istatistik eklenecek mi? Genel film datası fetchleniyor, burada creator'e ait filmler fetchlenecek.*/}
         <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />                     {/*küçük dizayn problemi, başka bir problem varsa backend tarafından*/}
         <Route path="/voting" element={<MainLayout><VotingPage /></MainLayout>} />                              {/*--------*/}
         <Route path="/proposal" element={<MainLayout><ProposalPage /></MainLayout>} />                          {/*--------*/}
