@@ -15,7 +15,7 @@ export default function CreatorPage() {
 
   if (!movies) {
     if (loading) return <h1>LOADING...</h1>;
-    return <div>LOADING...</div>;
+    return <h1>LOADING...</h1>;
   }
 
   return (

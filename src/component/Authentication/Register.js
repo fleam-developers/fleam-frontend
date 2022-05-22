@@ -35,7 +35,6 @@ export default function RegisterPage() {
   
 
   const { loading, errorMessage, userList } = useSelector((state) => state.authentication);
-  console.log(userList);
 
   useEffect(() => {
     dispatch(fetchAllUsers());

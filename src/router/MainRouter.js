@@ -30,19 +30,19 @@ export default function MainRouter() {
         <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />                             {/*-?-*/}
         <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />                                {/*navbar tamamlandı, bitti gibi*/}
         <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*-?-*/}
-        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*-?-*/}
-        <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*-?-*/}
-        <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*---*/}
-        <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*-?-*/}
+        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*backendden token alıcaz, bu tokeni config yapıp kullanıcaz, reducerlara eklicez, authorization*/}
+        <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*bitti gibi*/}
+        <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*--------*/}
+        <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*bitti gibi, backend tarafı ile konuşulup teyit edildi*/}
         <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*category yönlendirmeleri yapıldı, doğru şekilde aktarıldı, bitti gibi*/}
-        <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*comment ekleme konusunda herşey hazır, backendden gelene göre bağlanacak*/}
-        <Route path="/profile/" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />                   {/*-?-*/}
+        <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*comment ekleme konusunda herşey hazır, backendden gelene göre bağlanacak, update yok şuan*/}
+        <Route path="/profile" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />                    {/*-?-*/}
         <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />                       {/*-?-*/}
         <Route path="/creator/:creatorName" element={<MainLayout><CreatorPage /></MainLayout>} />               {/*-?-*/}
-        <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />                     {/**/}
-        <Route path="/voting" element={<MainLayout><VotingPage /></MainLayout>} />                              {/*---*/}
-        <Route path="/proposal" element={<MainLayout><ProposalPage /></MainLayout>} />                          {/*---*/}
-        <Route path="*" element={<MainLayout><NotFoundPage /></MainLayout>} />                                  {/*---*/}
+        <Route path="/add-content" element={<MainLayout><AddContentPage /></MainLayout>} />                     {/*küçük dizayn problemi, başka bir problem varsa backend tarafından*/}
+        <Route path="/voting" element={<MainLayout><VotingPage /></MainLayout>} />                              {/*--------*/}
+        <Route path="/proposal" element={<MainLayout><ProposalPage /></MainLayout>} />                          {/*--------*/}
+        <Route path="*" element={<MainLayout><NotFoundPage /></MainLayout>} />                                  {/*--------*/}
 
         <Route path="/video/:contentName" element={<VideoPlayerPage />} />                                      {/*-?-*/}
       </Routes>

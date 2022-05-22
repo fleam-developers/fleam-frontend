@@ -12,6 +12,14 @@ export const fetchAllCreators = createAsyncThunk(
   }
 )
 
+export const addNewCreator = createAsyncThunk(
+  `${namespace}/addNewCreator`,
+  async (creatorData) => {
+    console.log(creatorData)
+    // axios.post(`${API_URL}/movies/`, creatorData)
+  },
+)
+
 const CreatorListSlice = createSlice({
   name: namespace,
   initialState: {

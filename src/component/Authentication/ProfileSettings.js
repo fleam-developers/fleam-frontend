@@ -14,16 +14,25 @@ import { AuthService } from "../../service/AuthService";
 import FormItem from "../Common/FormItem";
 
 import "./Auth.scss";
+import { useSelector } from "react-redux";
 
 export default function ProfileSettings() {
-  const [username, setUsername] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  const { loggedUser } = useSelector((state) => state.authentication);
+
+  const [username, setUsername] = React.useState(loggedUser.username);
+  const [email, setEmail] = React.useState(loggedUser.username);
   const [currentPassword, setCurrentPassword] = React.useState("");
   const [newPassword, setNewPassword] = React.useState("");
 
   const [open, setSnackbarOpen] = React.useState(false);
   const [severity, setSnackbarSeverity] = React.useState("success");
   const [snackbarMessage, setSnackbarMessage] = React.useState("");
+
+  console.log(loggedUser);
+
+  if (!loggedUser) {
+    return <h1>LOADING...</h1>;
+  }
 
   const handleSnackbarClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -65,32 +74,6 @@ export default function ProfileSettings() {
               variant="contained"
               color="primary"
               className="submit"
-              // onClick={(event) => {
-              //     event.preventDefault();
-              //     console.log("Sign up button clicked.");
-              //     AuthService.register({
-              //         "email": email,
-              //         "username": username,
-              //         "password": password
-              //     }).then(r => {
-              //         console.log("Response: " + r.data.toString())
-              //         setSnackbarSeverity("success");
-              //         setSnackbarMessage("You've registered successfully!");
-              //         setSnackbarOpen(true);
-              //         delay(1000).then(() => {
-              //             navigate("/sign-in");
-              //             }
-              //         );
-              //     }).catch(e => {
-              //         setSnackbarSeverity("error");
-              //         if (e.response.status === 409) {
-              //             setSnackbarMessage(e.response.data);
-              //         } else {
-              //             setSnackbarMessage("Something went wrong: " + e.response.data.toString());
-              //         }
-              //         setSnackbarOpen(true);
-              //     })
-              // }}
             >
               UPDATE YOUR PROFILE
             </Button>

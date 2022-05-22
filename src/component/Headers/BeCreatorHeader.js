@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 
 import background from "../../img/cinema2.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { addNewCreator, fetchAllCreators } from "../../stores/CreatorList";
 
 export default function BeCreatorHeader() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { loggedUser } = useSelector((state) => state.authentication);
+
+  useEffect(() => {
+    dispatch(fetchAllCreators());
+  }, []);
+
+  if (!loggedUser) {
+    return <h1>LOADING...</h1>;
+  }
 
   return (
     <div style={{ backgroundImage: `url(${background})` }}>
@@ -21,7 +34,10 @@ export default function BeCreatorHeader() {
         <Button
           className="header-button"
           onClick={() => {
-            navigate("/creator");
+            if (loggedUser.userType === "user") {
+              addNewCreator(loggedUser.username);
+              navigate("/creator");
+            }
           }}
         >
           Be Creator

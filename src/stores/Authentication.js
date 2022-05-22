@@ -19,6 +19,10 @@ export const register = createAsyncThunk(`${namespace}/register`, async (userDat
   //   console.log(data)
   return data;
 });
+export const updateProfile = createAsyncThunk(`${namespace}/updateProfile`, async (userData) => {
+  const { data } = await axios.put(`${API_URL}/users`, userData);
+  return data;
+});
 
 export const login = createAsyncThunk(`${namespace}/login`, async (userData) => {
   //const { data } = await axios.post(`${API_URL}/login`, userData);
