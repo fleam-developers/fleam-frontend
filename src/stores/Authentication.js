@@ -10,6 +10,17 @@ export const fetchAllUsers = createAsyncThunk(`${namespace}/fetchAllUsers`, asyn
   return data;
 });
 
+export const getAdminStatistics = createAsyncThunk(`${namespace}/getAdminStatistics`, async () => {
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+  const { data } = await axios.get(`${API_URL2}/admin/statistics`, config);
+  // console.log(data)
+  return data;
+});
+
 export const fetchSelectedUser = createAsyncThunk(`${namespace}/fetchSelectedUser`, async (userId) => {
   //xxxxxxxxxxxxx
   const { data } = await axios.get(`${API_URL2}/user/?userId=${userId}`);
@@ -57,6 +68,7 @@ const AuthenticationSlice = createSlice({
     loggedUser: null,
     isLogged: false,
     errorMessage: null,
+    adminStatistics: null,
   },
   reducers: {
     getLoggedUser(state) {
@@ -105,6 +117,10 @@ const AuthenticationSlice = createSlice({
       state.loading = HTTP_STATUS.FULFILLED;
       state.loggedUser = data;
       localStorage.setItem("userType", "creator");
+    },
+    [getAdminStatistics.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED;
+      state.adminStatistics = payload;
     },
   },
 });
