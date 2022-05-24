@@ -16,7 +16,8 @@ export const fetchAllCategories = createAsyncThunk(`${namespace}/fetchAllCategor
 });
 
 export const fetchSearchedCategories = createAsyncThunk(`${namespace}/fetchSearchedCategories`, async (obj) => { //search
-  const { data } = await axios.get(`${API_URL}/categories`);
+  const { data } = await axios.get(`${API_URL2}/movie/search?name=${obj}`);
+  console.log(data)
   return data;
 });
 

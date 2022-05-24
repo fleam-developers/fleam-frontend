@@ -25,10 +25,12 @@ export default function HorizontalScrollView(props) {
   //       itemSelected ? currentSelected.filter((el) => el !== id) : currentSelected.concat(id)
   //     );
   //   };
+  // console.log(props)
+  console.log(props)
   if (!items.length) {
     return <></>;
   }
-
+  
   return (
     <CategoryGroup className="categoryGroup">
       {/* {props.name ? (

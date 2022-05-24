@@ -35,7 +35,7 @@ export default function MainRouter() {
         <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*--------*/}
         <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*bitti gibi, backend tarafı ile konuşulup teyit edildi*/}
         <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*XXXXXXXXXXXXXXXXX*/}
-        <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*comment ekleme, stars meseleleri*/}
+        <Route path="/content/:contentName" element={<MainLayout><ContentPage /></MainLayout>} />               {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/profile" element={<MainLayout><ProfileSettingsPage /></MainLayout>} />                    {/*-?-*/}
         <Route path="/be-creator" element={<MainLayout><BeCreatorPage /></MainLayout>} />                       {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/creator/:creatorName" element={<MainLayout><CreatorPage /></MainLayout>} />               {/*istatistik eklenecek mi? Genel film datası fetchleniyor, burada creator'e ait filmler fetchlenecek.*/}
