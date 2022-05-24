@@ -42,7 +42,41 @@ export const addNewMovie = createAsyncThunk(
   `${namespace}/addNewMovie`,
   async (contentData) => {
     console.log(contentData)
-    axios.post(`${API_URL}/movies/`, contentData)
+    await axios.post(`${API_URL}/movies/`, contentData)
+  },
+)
+
+export const getUserRatingForMovie = createAsyncThunk(
+  `${namespace}/getUserRatingForMovie`,
+  async (contentId) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const userId = localStorage.getItem("userId");
+
+    const rating = await axios.get(`${API_URL2}/movie/rating/${contentId}/${userId}`, config)
+    if (rating !== null){
+      return rating.data
+    }
+    else {
+      return null
+    }
+  },
+)
+
+export const createRatings = createAsyncThunk(
+  `${namespace}/createRatings`,
+  async (contentData) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const {contentId, ratingData} = contentData
+
+    await axios.post(`${API_URL2}/movie/rating/${contentId}`, ratingData, config)
   },
 )
 
@@ -53,6 +87,7 @@ const MoviesSlice = createSlice({
     loading: null,
     movies: null,
     selectedMovie:null,
+    userRatingForMovie:null,
     stream: null,
     errorMessage: null
   },
@@ -72,6 +107,10 @@ const MoviesSlice = createSlice({
     [fetchSelectedMovie.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED
       state.selectedMovie = payload
+    },
+    [getUserRatingForMovie.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED
+      state.userRatingForMovie = payload
     },
     [fetchStream.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED

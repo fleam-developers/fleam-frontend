@@ -11,7 +11,6 @@ import "@videojs/themes/dist/fantasy/index.css";
 import "@videojs/themes/dist/forest/index.css";
 import "@videojs/themes/dist/sea/index.css";
 
-
 export default function VideoJS({ options, themeName = "forest" }) {
   const navigate = useNavigate();
   const { contentName } = useParams();
@@ -34,7 +33,7 @@ export default function VideoJS({ options, themeName = "forest" }) {
       }
     };
   }, [options, videoRef, playerRef]);
-
+  
   return (
     <div>
       <div className="go-back-button">
@@ -49,7 +48,11 @@ export default function VideoJS({ options, themeName = "forest" }) {
           <ArrowBackIcon className="button-icon"></ArrowBackIcon>
         </Button>
       </div>
-      <video ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}`}></video>
+      {videoRef.current ? (
+        <video ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}`}></video>
+      ) : (
+        <video ref={videoRef} className={`video-js vjs-big-play-centered vjs-theme-${themeName}`}></video>
+      )}
     </div>
   );
 }

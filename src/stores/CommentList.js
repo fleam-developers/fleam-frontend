@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { API_URL, HTTP_STATUS } from './constants'
+import { API_URL, API_URL2, HTTP_STATUS } from './constants'
 import axios from 'axios'
 
 const namespace = 'comments'
@@ -15,14 +15,13 @@ export const fetchAllComments = createAsyncThunk(
 export const addNewComment = createAsyncThunk(
   `${namespace}/fetchAllComments`,
   async (obj) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
     const {contentName, commentData} = obj;
-    console.log(contentName, commentData)
-    const { data } = axios.get(`${API_URL}/movies/`)
-    console.log(data)
-    axios.post(`${API_URL}/movies/${contentName}`, commentData)
-    console.log("function work")
-    //console.log(data)
-    // const { data } = await axios.get(`${API_URL}/movies`, )
+    const { data } = axios.post(`${API_URL2}/movie/comment/${contentName}`, commentData, config)
     return data;
   }
 )
@@ -34,12 +33,7 @@ const CommentListSlice = createSlice({
     comments: null,
     errorMessage: null,
   },
-  reducers: {
-    addNewComment(state, { payload }) {
-      console.log("reducer work")
-      //state.comments = payload
-    },
-  },
+  reducers: {},
   extraReducers: {
     [fetchAllComments.pending](state) {
       state.loading = HTTP_STATUS.PENDING

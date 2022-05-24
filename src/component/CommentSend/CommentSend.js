@@ -8,6 +8,7 @@ import { addNewComment } from "../../stores/CommentList";
 import { useParams } from "react-router-dom";
 
 import "./CommentSend.scss";
+import { fetchSelectedMovie } from "../../stores/Movies";
 export default function CommentSend() {
   const { contentName } = useParams();
   const [questionList, setQuestionList] = useState();
@@ -18,62 +19,27 @@ export default function CommentSend() {
   const [alert, setAlert] = useState("");
 
   const toggle = () => {
-    console.log(isOpen);
     setIsOpen(!isOpen);
+    setCommentText("");
   };
 
   const dispatch = useDispatch();
   // const { selectedMovie } = useSelector((state) => state.movies);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    // dispatch(fetchAllCreators());
+  }, []);
 
   const handleSubmit = (e) => {
-    
-    const commentData = {
-      username: username,
-      text: commentText
-    };
-    //dispatch(addNewComment({contentName, commentData}))
     e.preventDefault();
-    // dispatch(addNewComment(contentName));
-    // const config = {
-    //   headers: {
-    //     Authorization: "Bearer " + localStorage.getItem("token"),
-    //   },
-    // };
-    // if (new Date() > new Date(props.event.startDate)) {
-    //   const data = {
-    //     questionText: questionText,
-    //   };
-
-    //   if (props.userRole === "user") {
-    //     axios
-    //       .post(`/user/${props.user}/eventQuestions/${props.event.name}`, data, config)
-    //       .then((res) => {
-    //         setMessage(res.data.message);
-    //         setTrigger(!trigger);
-    //         setQuestionText("");
-    //         setIsOpen(false);
-    //         if (res.data.messageType === "SUCCESS") {
-    //           setAlert("successQuestion");
-    //         } else {
-    //           setAlert("errorQuestion");
-    //         }
-    //         setTimeout(() => {
-    //           setAlert("");
-    //           setMessage("");
-    //         }, 2000);
-    //       })
-
-    //       .catch((err) => console.log(err));
-    //   }
-    // } else {
-    //   console.log("error");
-    //   setAlert("errorQuestion");
-    //   setTimeout(() => {
-    //     setAlert("");
-    //   }, 2000);
-    // }
+    const commentData = {
+      userId: localStorage.getItem("userId"),
+      comment: commentText,
+    };
+    dispatch(addNewComment({ contentName, commentData })).then((res) => {
+      dispatch(fetchSelectedMovie(contentName))
+      setIsOpen(false);
+    });
   };
 
   const writeComment = () => {
