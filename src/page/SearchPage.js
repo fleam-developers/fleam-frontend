@@ -2,15 +2,14 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import HorizontalScrollViews from "../component/HorizontalScrollView/HorizontalScrollViews";
-import { fetchAllCategories, fetchSearchedCategories } from "../stores/Categories";
+import { fetchSearchedCategories } from "../stores/Categories";
 
 export default function SearchPage() {
-  const params = useParams()
-  console.log(params.searchedKey)
+  const params = useParams();
+  console.log(params.searchedKey);
   const { loading, error, categories } = useSelector((state) => state.categories);
 
   const dispatch = useDispatch();
-  
 
   useEffect(() => {
     //console.log(params.searchedKey)

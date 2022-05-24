@@ -72,11 +72,7 @@ function PrimaryAppBar({ dark, language, setDarkMode, setLanguage }) {
                   inputProps={{ "aria-label": "search" }}
                 />
 
-                <IconButton
-                  onClick={() => {
-                    navigate(`/search/${searchQuery}`);
-                  }}
-                >
+                <IconButton onClick={handleSearch}>
                   <SearchIcon />
                 </IconButton>
               </div>

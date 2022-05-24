@@ -29,9 +29,9 @@ export default function MainRouter() {
       <Routes>
         <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />                             {/*-?-*/}
         <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />                                {/*navbar tamamlandı, bitti gibi*/}
-        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*-?-*/}
-        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*backendden token alıcaz, bu tokeni config yapıp kullanıcaz, reducerlara eklicez, authorization*/}
-        <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*bitti gibi*/}
+        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*Creator list fetchlenip bağlandıktan sonra, her bir creator page'e gönderilecek, creator'e ait filmler gösterilcek*/}
+        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*tokeni aldık, bu tokeni config yapıp kullanıcaz, reducerlara eklicez, authorization*/}
+        <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*--------*/}
         <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*bitti gibi, backend tarafı ile konuşulup teyit edildi*/}
         <Route path="/category/:categoryName" element={<MainLayout><CategoryPage /></MainLayout>} />            {/*category yönlendirmeleri yapıldı, doğru şekilde aktarıldı, bitti gibi*/}

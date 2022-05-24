@@ -16,7 +16,6 @@ export default function HorizontalScrollView(props) {
   // const [position, setPosition] = React.useState(0);
 
   // const isItemSelected = (id) => !!selected.find((el) => el === id);
-
   // const handleClick =
   //   (id) =>
   //   ({ getItemById, scrollToItem }) => {
@@ -26,6 +25,9 @@ export default function HorizontalScrollView(props) {
   //       itemSelected ? currentSelected.filter((el) => el !== id) : currentSelected.concat(id)
   //     );
   //   };
+  if (!items.length) {
+    return <></>;
+  }
 
   return (
     <CategoryGroup className="categoryGroup">
@@ -68,17 +70,21 @@ export default function HorizontalScrollView(props) {
           threshold: [0.01, 0.05, 0.5, 0.75, 0.95, 1],
         }}
       >
-        {items.map((item) => (
-          <ContentCard
-            itemId={item.id}
-            title={item.name}
-            key={item.id}
-            // selected={isItemSelected(item.id)}
-            recommended={props.type === "content" ? true : false}
-            imageSource={item.image}
-            imageAlt={item.name}
-          ></ContentCard>
-        ))}
+        {items.map((item) =>
+          item.poster_url ? (
+            <ContentCard
+              itemId={item.id}
+              title={item.name}
+              key={item.id}
+              // selected={isItemSelected(item.id)}
+              recommended={props.type === "content" ? true : false}
+              imageSource={item.poster_url}
+              imageAlt={item.name}
+            ></ContentCard>
+          ) : (
+            <></>
+          )
+        )}
       </ScrollMenu>
     </CategoryGroup>
   );

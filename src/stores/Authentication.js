@@ -1,40 +1,51 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { API_URL, HTTP_STATUS } from "./constants";
+import { API_URL, API_URL2, HTTP_STATUS } from "./constants";
 import axios from "axios";
 
 const namespace = "auth";
 
 export const fetchAllUsers = createAsyncThunk(`${namespace}/fetchAllUsers`, async () => {
+  //----------
   const { data } = await axios.get(`${API_URL}/users`);
   return data;
 });
 
-export const fetchSelectedUser = createAsyncThunk(`${namespace}/fetchSelectedUser`, async (username) => {
-  const { data } = await axios.get(`${API_URL}/users/${username}`);
+export const fetchSelectedUser = createAsyncThunk(`${namespace}/fetchSelectedUser`, async (userId) => {
+  //xxxxxxxxxxxxx
+  const { data } = await axios.get(`${API_URL2}/user/?userId=${userId}`);
   return data;
 });
 
 export const register = createAsyncThunk(`${namespace}/register`, async (userData) => {
-  const { data } = await axios.post(`${API_URL}/users`, userData);
-  //   console.log(data)
+  const { data } = await axios.post(`${API_URL2}/auth/register`, userData);
   return data;
 });
 export const updateProfile = createAsyncThunk(`${namespace}/updateProfile`, async (userData) => {
+  //----------
   const { data } = await axios.put(`${API_URL}/users`, userData);
   return data;
 });
 
 export const login = createAsyncThunk(`${namespace}/login`, async (userData) => {
-  //const { data } = await axios.post(`${API_URL}/login`, userData);
-  //   console.log(data)
-  // userTypes: user, creator, admin
-  return { token: "Bearer AbCdEf123456", username: userData.username, userType: "user" };
+  const { data } = await axios.post(`${API_URL2}/auth/login`, userData);
+  localStorage.setItem("token", data.token);
+  localStorage.setItem("username", data.user.username);
+  localStorage.setItem("userId", data.user.id);
+  data.user.creator ? localStorage.setItem("userType", "creator") : localStorage.setItem("userType", "user");
+
+  return { token: data.token, user: data.user };
 });
 
 export const beCreator = createAsyncThunk(`${namespace}/beCreator`, async () => {
-  //const { data } = await axios.post(`${API_URL}/login`, userData);
-  //   console.log(data)
-  // userTypes: user, creator, admin
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+  const userData = {
+    userId: localStorage.getItem("userId"),
+  };
+  await axios.post(`${API_URL2}/user/creator`, userData, config);
 });
 
 const AuthenticationSlice = createSlice({
@@ -53,6 +64,7 @@ const AuthenticationSlice = createSlice({
         username: localStorage.getItem("username"),
         userType: localStorage.getItem("userType"),
         token: localStorage.getItem("token"),
+        id: localStorage.getItem("id"),
       };
       state.loggedUser = data;
       state.isLogged = localStorage.getItem("token") ? true : false;
@@ -90,9 +102,9 @@ const AuthenticationSlice = createSlice({
         userType: "creator",
         token: localStorage.getItem("token"),
       };
-      console.log(data)
       state.loading = HTTP_STATUS.FULFILLED;
       state.loggedUser = data;
+      localStorage.setItem("userType", "creator");
     },
   },
 });

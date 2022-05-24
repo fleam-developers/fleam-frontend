@@ -23,7 +23,7 @@ import { delay } from "../../util/async";
 import "./Auth.scss";
 import FormItem from "../Common/FormItem";
 import { useDispatch } from "react-redux";
-import { login } from "../../stores/Authentication";
+import { getLoggedUser, login } from "../../stores/Authentication";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -62,12 +62,8 @@ export default function LoginPage() {
       };
 
       dispatch(login(data)).then((res) => {
-        console.log(res);
-
         if (res.payload) {
-          localStorage.setItem("token", res.payload.token);
-          localStorage.setItem("username", res.payload.username);
-          localStorage.setItem("userType", res.payload.userType);
+          dispatch(getLoggedUser());
           navigate("/browse");
         } else {
           console.log(res.error.message);

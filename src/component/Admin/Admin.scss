@@ -1,7 +1,6 @@
 @import "../../App.scss";
 
 .admin-container {
-  margin-bottom: 32px;
   padding-bottom: 32px;
 
   .title {
@@ -14,7 +13,7 @@
     text-align: center;
     // margin-bottom: 16px;
   }
-  
+
   .text {
     margin-left: 5%;
     font-weight: bold;
@@ -25,8 +24,11 @@
   }
 
   .card-container {
-    margin-left: 2%;
+    margin-left: 1%;
     width: 96%;
+  }
+  .statistic-container {
+    margin-top: 16px;
   }
 
   .card-content {
@@ -50,6 +52,25 @@
     padding: 16px 16px;
     border-radius: 8px;
     background-color: darken(gray, 30);
+  }
+
+  .statistics {
+    padding: 16px 0;
+    border-radius: 36px;
+    background-color: darken(gray, 30);
+    text-align: center;
+    border-bottom: 10px solid $secondary-color;
+    min-height: 240px;
+    .head {
+      font-size: 30px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .content {
+      font-size: 50px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: bolder;
+    }
   }
 
   .bar {

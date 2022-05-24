@@ -6,7 +6,7 @@ import HorizontalScrollView from "../component/HorizontalScrollView/HorizontalSc
 import CommentSend from "../component/CommentSend/CommentSend";
 import CommentAnswers from "../component/Comments/CommentList";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllMovies, fetchSelectedMovie } from "../stores/Movies";
+import { fetchSelectedMovie } from "../stores/Movies";
 import { useParams } from "react-router-dom";
 
 export default function ContentPage() {
@@ -14,6 +14,7 @@ export default function ContentPage() {
 
   const dispatch = useDispatch();
   const { selectedMovie } = useSelector((state) => state.movies);
+  // console.log(selectedMovie)
 
   useEffect(() => {
     dispatch(fetchSelectedMovie(contentName));
@@ -36,8 +37,8 @@ export default function ContentPage() {
               <h3>Warner Bros.</h3>
             </Grid>
           </div> */}
-          <ContentImage image={selectedMovie.image} />
-          <HorizontalScrollView type="content" movies={selectedMovie.recommendedMovies} />
+          <ContentImage image={selectedMovie.poster_url} />
+          <HorizontalScrollView type="content" movies={selectedMovie.similar_movies} />
           <CommentSend />
           <CommentAnswers comments={selectedMovie.comments} />
         </Grid>

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { API_URL, HTTP_STATUS } from './constants'
+import { API_URL, API_URL2, HTTP_STATUS } from './constants'
 import axios from 'axios'
 
 const namespace = 'movies'
@@ -14,8 +14,26 @@ export const fetchAllMovies = createAsyncThunk(
 
 export const fetchSelectedMovie = createAsyncThunk(
   `${namespace}/fetchSelectedMovie`,
-  async (movieName) => {
-    const { data } = await axios.get(`${API_URL}/movies/${movieName}`)
+  async (movieId) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${API_URL2}/movie?movieId=${movieId}`, config)
+    return data
+  },
+)
+
+export const fetchStream = createAsyncThunk(
+  `${namespace}/fetchStream`,
+  async (movieId) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const { data } = await axios.get(`${API_URL2}/movie/stream?movieId=${movieId}`, config)
     return data
   },
 )
@@ -35,6 +53,7 @@ const MoviesSlice = createSlice({
     loading: null,
     movies: null,
     selectedMovie:null,
+    stream: null,
     errorMessage: null
   },
   reducers: {},
@@ -53,6 +72,10 @@ const MoviesSlice = createSlice({
     [fetchSelectedMovie.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED
       state.selectedMovie = payload
+    },
+    [fetchStream.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED
+      state.stream = payload
     },
   },
 })

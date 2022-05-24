@@ -15,9 +15,12 @@ export default function HomePage() {
     dispatch(fetchAllCategories());
   }, []);
 
+  if (!categories) {
+    return <h1>LOADING...</h1>;
+  }
   return (
     <div>
-      <HorizontalScrollViews type="home" movies={categories}  />
+      <HorizontalScrollViews type="home" categories={categories.genres}  />
     </div>
   );
 }

@@ -220,7 +220,14 @@
       "name": "Lord of The Ducks",
       "contentCreator": "Warner Bros.",
       "image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/how-to-keep-ducks-call-ducks-1615457181.jpg?resize=640:*",
-      "stars": [3.5, 2.5, 4, 1, 3.5, 1.5],
+      "stars": [
+        3.5,
+        2.5,
+        4,
+        1,
+        3.5,
+        1.5
+      ],
       "text": "Is bibendum ac ex vehicula laoreet. Suspendisse congue vulputate lobortis. Pellentesque at interdum tortor. Quisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus ut est sed Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus ut est sed faucibus. Du faucibus. Du arcu quam, malesuada vel mauris et, posuere sagittis ipsum. Aliquam ultricies a ligula nec faucibus. In elit metus, efficitur lobortis nisi quis, molestie porttitor metus. Pellentesque et neque risus. Aliquam vulputate, mauris vitae tincidunt interdum, mauris mi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus ut est sed faucibus. Du vehicula urna, nec feugiat quam lectus vitae ex.",
       "comments": [
         {
@@ -295,7 +302,14 @@
       "name": "Solomon Kane",
       "contentCreator": "Ay Yapım",
       "image": "https://resizing.flixster.com/ngeXAOYyG_OhwypP9TxXZb9Dy-0=/fit-in/180x240/v2/https://flxt.tmsimg.com/assets/p8022770_p_v7_aj.jpg",
-      "stars": [2.5, 2.5, 3, 1, 2.5, 1],
+      "stars": [
+        2.5,
+        2.5,
+        3,
+        1,
+        2.5,
+        1
+      ],
       "text": "Bu ikinci filimdir, 2. film, movie 2 Is bibendum ac ex vehicula laoreet. Suspendisse congue vulputate lobortis. Pellentesque at interdum tortor. Quisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus ut est sed Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus ut est sed faucibus. Du faucibus. Du arcu quam, malesuada vel mauris et, posuere sagittis ipsum. Aliquam ultricies a ligula nec faucibus. In elit metus, efficitur lobortis nisi quis, molestie porttitor metus. Pellentesque et neque risus. Aliquam vulputate, mauris vitae tincidunt interdum, mauris mi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus ut est sed faucibus. Du vehicula urna, nec feugiat quam lectus vitae ex.",
       "comments": [
         {
@@ -641,6 +655,18 @@
       "username": "aaaaa",
       "password": "aaaaaa",
       "id": 25
+    },
+    {
+      "email": "assa",
+      "username": "assa",
+      "password": "assadsa",
+      "id": 26
+    },
+    {
+      "email": "sadasdasd",
+      "username": "asdasd",
+      "password": "saasdasd",
+      "id": 27
     }
   ]
 }

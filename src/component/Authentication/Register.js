@@ -34,16 +34,16 @@ export default function RegisterPage() {
 
   
 
-  const { loading, errorMessage, userList } = useSelector((state) => state.authentication);
+  // const { loading, errorMessage, userList } = useSelector((state) => state.authentication);
 
-  useEffect(() => {
-    dispatch(fetchAllUsers());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchAllUsers());
+  // }, []);
 
-  if (!userList) {
-    if (loading) return <h1>LOADING...</h1>;
-    return <div>LOADING...</div>;
-  }
+  // if (!userList) {
+  //   if (loading) return <h1>LOADING...</h1>;
+  //   return <div>LOADING...</div>;
+  // }
 
   const handleSnackbarClose = (event, reason) => {
     if (reason === "clickaway") {

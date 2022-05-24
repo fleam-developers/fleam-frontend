@@ -16,7 +16,7 @@ export default function ContentDetails(props) {
   const { contentName } = useParams();
   const [value, setValue] = React.useState(2);
   
-  console.log(props.details);
+  // console.log(props.details);
   return (
     <Card className="details-card">
       <h2 style={{ marginBottom: "8px" }}>{props.details.name}</h2>
@@ -42,13 +42,13 @@ export default function ContentDetails(props) {
         size="large"
       /> */}
       <Typography component="legend">Rating</Typography>
-      <Rating name="read-only" value={average(props.details.stars)} precision={0.1} readOnly size="large" />
+      <Rating name="read-only" value={props.details.averageRating} precision={0.1} readOnly size="large" />
 
       <div className="information">
         <h5 component="legend" className="title">
           Information about content:
         </h5>
-        <div className="text">{props.details.text}</div>
+        <div className="text">{props.details.description}</div>
       </div>
 
       {/* <Typography component="legend">Disabled</Typography>
