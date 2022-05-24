@@ -11,24 +11,26 @@ import { fetchSearchedCategories } from "../stores/Categories";
 export default function SearchPage() {
   const params = useParams();
   // const [items, setItems] = React.useState(props.movies);
-  const { loading, error, categories } = useSelector((state) => state.categories);
-  console.log(categories);
+  const { loading, error, searchedMovies } = useSelector((state) => state.categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchSearchedCategories(params.searchedKey));
-  }, []);
+  }, [params]);
 
-  if (!categories) {
+  if (!searchedMovies) {
     return <h1>LOADING...</h1>;
   }
+  console.log(searchedMovies)
   return (
     <div>
       {/* <HorizontalScrollViews type="search" categories={categories} searchedKey={params.searchedKey} /> */}
       {/* <HorizontalScrollView type="search"  {...categories} /> */}
+      <h2 className="search-value">searched content: "{params.searchedKey}"</h2>
       <CategoryGroup className="category-details-group">
         <Grid container spacing={{ xs: 2, md: 3 }}>
-          {categories.map((movie, index) => (
+        
+          {searchedMovies.map((movie, index) => (
             <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
               <ContentCard
                 itemId={movie.id}

@@ -26,7 +26,6 @@ export default function HorizontalScrollView(props) {
   //     );
   //   };
   // console.log(props)
-  console.log(props)
   if (!items.length) {
     return <></>;
   }

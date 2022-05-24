@@ -8,7 +8,6 @@ export default function HorizontalScrollViews(props) {
   if (!props.categories) {
     return <h1>LOADING...</h1>;
   }
-  console.log(props)
   return (
     <div>
       {props.searchedKey && props.type === "search" ? (

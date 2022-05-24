@@ -38,6 +38,7 @@ const CategoriesSlice = createSlice({
     loading: null,
     categories: null,
     selectedCategory: null,
+    searchedMovies: null,
     errorMessage: null,
   },
   reducers: {},
@@ -55,7 +56,7 @@ const CategoriesSlice = createSlice({
     },
     [fetchSearchedCategories.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED;
-      state.categories = payload;
+      state.searchedMovies = payload;
     },
     [fetchSelectedCategory.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED;
