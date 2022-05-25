@@ -31,9 +31,8 @@ export default function BeCreatorPage() {
 
   const { loggedUser } = useSelector((state) => state.authentication);
 
-  if (!loggedUser) return <h1>LOADING...</h1>;
-  if (!loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
-  if (loggedUser.userType === "creator") return <Navigate to={`/creator/${loggedUser.userId}`}></Navigate>;
+  if (loggedUser && !loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
+  if (loggedUser && loggedUser.userType === "creator") return <Navigate to={`/creator/${loggedUser.userId}`}></Navigate>;
 
   return (
     <div>

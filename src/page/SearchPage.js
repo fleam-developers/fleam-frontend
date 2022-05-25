@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import ContentCard from "../component/ContentCard/ContentCard";
 import CategoryGroup from "@mui/material/Card";
 import HorizontalScrollView from "../component/HorizontalScrollView/HorizontalScrollView";
@@ -11,12 +11,15 @@ import { fetchSearchedCategories } from "../stores/Categories";
 export default function SearchPage() {
   const params = useParams();
   // const [items, setItems] = React.useState(props.movies);
+  const { loggedUser } = useSelector((state) => state.authentication);
   const { loading, error, searchedMovies } = useSelector((state) => state.categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchSearchedCategories(params.searchedKey));
   }, [params]);
+  
+  if (loggedUser && !loggedUser.userType) return <Navigate to={"/browse"}></Navigate>;
 
   if (!searchedMovies) {
     return <h1>LOADING...</h1>;

@@ -14,9 +14,8 @@ export default function CreatorPage() {
     dispatch(fetchAllMovies());
   }, []);
 
-  if (!loggedUser) return <h1>LOADING...</h1>;
-  if (!loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
-  if (loggedUser.userType === "user") return <Navigate to={`/be-creator`}></Navigate>;
+  if (loggedUser && !loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
+  if (loggedUser && loggedUser.userType === "user") return <Navigate to={`/be-creator`}></Navigate>;
 
   if (!movies) {
     return <h1>LOADING...</h1>;

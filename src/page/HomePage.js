@@ -14,8 +14,7 @@ export default function HomePage() {
     dispatch(fetchAllCategories());
   }, []);
 
-  if (!loggedUser) return <h1>LOADING...</h1>;
-  if (!loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
+  if (loggedUser && !loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
 
   if (!categories) {
     return <h1>LOADING...</h1>;

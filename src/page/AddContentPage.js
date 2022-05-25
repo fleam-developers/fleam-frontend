@@ -10,9 +10,8 @@ export default function AddContentPage() {
   // const dispatch = useDispatch();
   const { loggedUser } = useSelector((state) => state.authentication);
 
-  if (!loggedUser) return <h1>LOADING...</h1>;
-  if (!loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
-  if (loggedUser.userType === "user") return <Navigate to={"/be-creator"}></Navigate>;
+  if (loggedUser && !loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
+  if (loggedUser && loggedUser.userType === "user") return <Navigate to={"/be-creator"}></Navigate>;
 
   // useEffect(() => {
   //   dispatch(fetchSelectedMovie(contentName));

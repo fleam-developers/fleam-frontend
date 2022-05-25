@@ -6,8 +6,7 @@ import Register from "../component/Authentication/Register";
 export default function RegisterPage() {
   const { loggedUser } = useSelector((state) => state.authentication);
 
-  if (!loggedUser) return <h1>LOADING...</h1>;
-  if (loggedUser.userType) return <Navigate to={"/browse"}></Navigate>;
+  if (loggedUser && loggedUser.userType) return <Navigate to={"/browse"}></Navigate>;
 
   return (
     <div>
