@@ -14,7 +14,6 @@ export default function ContentDetails(props) {
   const [value, setValue] = React.useState(useSelector((state) => state.movies));
 
   const { userRatingForMovie } = useSelector((state) => state.movies);
-  console.log(userRatingForMovie);
 
   useEffect(() => {
     dispatch(getUserRatingForMovie(contentName));

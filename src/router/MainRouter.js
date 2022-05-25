@@ -30,7 +30,7 @@ export default function MainRouter() {
         <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />                             {/*Portfolio*/}
         <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />                                {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*XXXXXXXXXXXXXXXXX*/}
-        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*tokeni aldık, bu tokeni config yapıp kullanıcaz, reducerlara eklicez, authorization*/}
+        <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*--------*/}
         <Route path="/search/:searchedKey" element={<MainLayout><SearchPage /></MainLayout>} />                 {/*XXXXXXXXXXXXXXXXX*/}

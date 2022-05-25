@@ -21,7 +21,7 @@ export default function SearchPage() {
   if (!searchedMovies) {
     return <h1>LOADING...</h1>;
   }
-  console.log(searchedMovies)
+
   return (
     <div>
       {/* <HorizontalScrollViews type="search" categories={categories} searchedKey={params.searchedKey} /> */}
@@ -29,7 +29,6 @@ export default function SearchPage() {
       <h2 className="search-value">searched content: "{params.searchedKey}"</h2>
       <CategoryGroup className="category-details-group">
         <Grid container spacing={{ xs: 2, md: 3 }}>
-        
           {searchedMovies.map((movie, index) => (
             <Grid item xs={6} sm={4} md={3} lg={2} key={index}>
               <ContentCard

@@ -54,7 +54,6 @@ export const getUserRatingForMovie = createAsyncThunk(
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
     };
-    console.log(config)
     const userId = localStorage.getItem("userId");
 
     const rating = await axios.get(`${API_URL2}/movie/rating/${contentId}/${userId}`, config)

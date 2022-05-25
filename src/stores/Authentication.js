@@ -17,7 +17,6 @@ export const getAdminStatistics = createAsyncThunk(`${namespace}/getAdminStatist
     },
   };
   const { data } = await axios.get(`${API_URL2}/admin/statistics`, config);
-  // console.log(data)
   return data;
 });
 
@@ -37,7 +36,7 @@ export const removeCreator = createAsyncThunk(`${namespace}/removeCreator`, asyn
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
   };
-  
+
   const { data } = await axios.post(`${API_URL2}/admin/revertCreator/${userId}`, {}, config);
   return data;
 });
@@ -63,7 +62,11 @@ export const login = createAsyncThunk(`${namespace}/login`, async (userData) => 
   localStorage.setItem("token", data.token);
   localStorage.setItem("username", data.user.username);
   localStorage.setItem("userId", data.user.id);
-  data.user.creator ? localStorage.setItem("userType", "creator") : localStorage.setItem("userType", "user");
+  data.user.admin
+    ? localStorage.setItem("userType", "admin")
+    : data.user.creator
+    ? localStorage.setItem("userType", "creator")
+    : localStorage.setItem("userType", "user");
 
   return { token: data.token, user: data.user };
 });
@@ -90,7 +93,7 @@ const AuthenticationSlice = createSlice({
     isLogged: false,
     errorMessage: null,
     adminStatistics: null,
-    creators: null
+    creators: null,
   },
   reducers: {
     getLoggedUser(state) {
@@ -98,7 +101,7 @@ const AuthenticationSlice = createSlice({
         username: localStorage.getItem("username"),
         userType: localStorage.getItem("userType"),
         token: localStorage.getItem("token"),
-        id: localStorage.getItem("id"),
+        id: localStorage.getItem("userId"),
       };
       state.loggedUser = data;
       state.isLogged = localStorage.getItem("token") ? true : false;

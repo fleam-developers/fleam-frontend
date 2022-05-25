@@ -15,14 +15,13 @@ export const fetchAllCategories = createAsyncThunk(`${namespace}/fetchAllCategor
   return data;
 });
 
-export const fetchSearchedCategories = createAsyncThunk(`${namespace}/fetchSearchedCategories`, async (obj) => { 
+export const fetchSearchedCategories = createAsyncThunk(`${namespace}/fetchSearchedCategories`, async (obj) => {
   const config = {
     headers: {
       Authorization: "Bearer " + localStorage.getItem("token"),
     },
   };
   const { data } = await axios.get(`${API_URL2}/movie/search?name=${obj}`, config);
-  console.log(data)
   return data;
 });
 

@@ -18,7 +18,7 @@ export default function ReportList() {
   if (!creators) {
     return <h1>LOADING...</h1>;
   }
-  console.log(creators);
+
   return (
     <div>
       <Card className="admin-container">
@@ -57,7 +57,7 @@ export default function ReportList() {
                   <Button
                     className="report-button"
                     onClick={() => {
-                      dispatch(removeCreator(item.id))
+                      dispatch(removeCreator(item.id));
                     }}
                   >
                     Remove

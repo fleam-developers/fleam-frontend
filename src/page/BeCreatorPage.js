@@ -1,5 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 import BeCreatorHeader from "../component/Headers/BeCreatorHeader";
 import JumboItems from "../component/JumboItem/JumboItems";
 
@@ -27,6 +28,13 @@ export default function BeCreatorPage() {
       alt: "Tiger King on Netflix",
     },
   ];
+
+  const { loggedUser } = useSelector((state) => state.authentication);
+
+  if (!loggedUser) return <h1>LOADING...</h1>;
+  if (!loggedUser.userType) return <Navigate to={"/login"}></Navigate>;
+  if (loggedUser.userType === "creator") return <Navigate to={`/creator/${loggedUser.userId}`}></Navigate>;
+
   return (
     <div>
       <BeCreatorHeader />

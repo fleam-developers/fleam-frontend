@@ -5,12 +5,12 @@ import { fetchDashboardData } from "../stores/dashboardSlice";
 const Dashboard = () => {
   const dispatch = useDispatch();
 
-  const data = useSelector(state => state.dashboard)
+  const data = useSelector((state) => state.dashboard);
 
   useEffect(() => {
     dispatch(fetchDashboardData());
   }, []);
-  console.log(data)
+
   return <div>Dashboard</div>;
 };
 
