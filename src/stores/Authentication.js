@@ -21,6 +21,27 @@ export const getAdminStatistics = createAsyncThunk(`${namespace}/getAdminStatist
   return data;
 });
 
+export const getCreators = createAsyncThunk(`${namespace}/getCreators`, async () => {
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+  const { data } = await axios.get(`${API_URL2}/admin/creators`, config);
+  return data;
+});
+
+export const removeCreator = createAsyncThunk(`${namespace}/removeCreator`, async (userId) => {
+  const config = {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+    },
+  };
+  
+  const { data } = await axios.post(`${API_URL2}/admin/revertCreator/${userId}`, {}, config);
+  return data;
+});
+
 export const fetchSelectedUser = createAsyncThunk(`${namespace}/fetchSelectedUser`, async (userId) => {
   //xxxxxxxxxxxxx
   const { data } = await axios.get(`${API_URL2}/user/?userId=${userId}`);
@@ -69,6 +90,7 @@ const AuthenticationSlice = createSlice({
     isLogged: false,
     errorMessage: null,
     adminStatistics: null,
+    creators: null
   },
   reducers: {
     getLoggedUser(state) {
@@ -121,6 +143,10 @@ const AuthenticationSlice = createSlice({
     [getAdminStatistics.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED;
       state.adminStatistics = payload;
+    },
+    [getCreators.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED;
+      state.creators = payload;
     },
   },
 });

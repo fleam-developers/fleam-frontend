@@ -29,7 +29,7 @@ export default function MainRouter() {
       <Routes>
         <Route exact path="/" element={<MainLayout><LandingPage /></MainLayout>} />                             {/*Portfolio*/}
         <Route path="/browse" element={<MainLayout><HomePage /></MainLayout>} />                                {/*XXXXXXXXXXXXXXXXX*/}
-        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*Creator list fetchlenip bağlandıktan sonra, her bir creator page'e gönderilecek, creator'e ait filmler gösterilcek*/}
+        <Route path="/admin" element={<MainLayout><AdminPage /></MainLayout>} />                                {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/login" element={<MainLayout><LoginPage /></MainLayout>} />                                {/*tokeni aldık, bu tokeni config yapıp kullanıcaz, reducerlara eklicez, authorization*/}
         <Route path="/register" element={<MainLayout><RegisterPage /></MainLayout>} />                          {/*XXXXXXXXXXXXXXXXX*/}
         <Route path="/reset" element={<MainLayout><PasswordResetPage /></MainLayout>} />                        {/*--------*/}

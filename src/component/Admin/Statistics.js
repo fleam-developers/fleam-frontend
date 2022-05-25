@@ -9,7 +9,7 @@ import { getAdminStatistics } from "../../stores/Authentication";
 export default function Statistics() {
   const dispatch = useDispatch();
   const { adminStatistics } = useSelector((state) => state.authentication);
-  console.log(adminStatistics)
+
   useEffect(() => {
     dispatch(getAdminStatistics());
   }, []);

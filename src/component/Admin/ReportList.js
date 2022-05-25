@@ -2,58 +2,66 @@ import React, { useEffect } from "react";
 import Card from "@mui/material/Card";
 import { Button, CardActions, CardContent, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllReports } from "../../stores/ReportList";
 
 import "./Admin.scss";
+import { getCreators, removeCreator } from "../../stores/Authentication";
+import { useNavigate } from "react-router-dom";
 export default function ReportList() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { loading, error, reports } = useSelector((state) => state.reports);
+  const { creators } = useSelector((state) => state.authentication);
 
   useEffect(() => {
-    dispatch(fetchAllReports());
+    dispatch(getCreators());
   }, []);
 
-  if (!reports) {
-    if (loading) return <h1>LOADING...</h1>;
-    return <div>LOADING...</div>;
+  if (!creators) {
+    return <h1>LOADING...</h1>;
   }
-
+  console.log(creators);
   return (
     <div>
       <Card className="admin-container">
         <h2 className="title">Creators List</h2>
         <Grid className="card-container" container spacing={{ xs: 2, md: 3 }}>
-          {reports.map((item) => (
+          {creators.map((item) => (
             <Grid item xs={12} sm={6} md={6} lg={4} xl={3}>
               <div className="report">
                 <CardContent>
                   <Typography gutterBottom variant="p" component="div">
-                    <span className="low-opacity-text">Creator Name: </span> Username Asd
+                    <span className="low-opacity-text">Creator Name: </span> {item.username}
                   </Typography>
                   <Typography gutterBottom variant="p" component="div">
-                    <span className="low-opacity-text">Email: </span> sampleuser16@gmail.com
+                    <span className="low-opacity-text">Email: </span> {item.email}
                   </Typography>
                   <Typography gutterBottom variant="p" component="div">
-                    <span className="low-opacity-text">Content Count: </span> 15
+                    <span className="low-opacity-text">ID: </span> {item.id}
                   </Typography>
                   <Typography variant="body2">
-                    <span className="low-opacity-text">The contents uploaded by this Creator have a total of</span> 143{" "}
-                    <span className="low-opacity-text">hours of views.</span>
+                    <span className="low-opacity-text">There are </span> 15{" "}
+                    <span className="low-opacity-text">
+                      {" "}
+                      contents added by this creator. You can see them in details.
+                    </span>
                   </Typography>
-                  {/* <Typography gutterBottom variant="p" component="div">
-                    <span className="low-opacity-text">Report: </span> Reported Person
-                  </Typography>
-                  <Typography gutterBottom variant="p" component="div">
-                    <span  className="low-opacity-text">Reported by: </span> Reporter
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
-                    continents except Antarctica
-                  </Typography> */}
                 </CardContent>
                 <CardActions>
-                  <Button className="report-button">Go To Details</Button>
-                  <Button className="report-button">Remove</Button>
+                  <Button
+                    className="report-button"
+                    onClick={() => {
+                      navigate(`/creator/${item.id}`);
+                    }}
+                  >
+                    Go To Details
+                  </Button>
+                  <Button
+                    className="report-button"
+                    onClick={() => {
+                      dispatch(removeCreator(item.id))
+                    }}
+                  >
+                    Remove
+                  </Button>
                 </CardActions>
               </div>
             </Grid>
