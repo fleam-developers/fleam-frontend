@@ -15,8 +15,14 @@
 .jumbo-item-card .centeredText .title {
   font-size: 2.5rem;
 }
+.jumbo-item-card .centeredText .title-second {
+  font-size: 2rem;
+}
 .jumbo-item-card .centeredText .subTitle {
   font-size: 1.5rem;
+}
+.jumbo-item-card .centeredText .portfolioText {
+  font-size: 1.1rem;
 }
 
 /*# sourceMappingURL=JumboItem.css.map */

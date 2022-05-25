@@ -24,4 +24,10 @@
   margin-bottom: 32px;
 }
 
+.portfolio .portfolioImage {
+  border: 10px solid white;
+  border-radius: 20px;
+  width: 90%;
+}
+
 /*# sourceMappingURL=Headers.css.map */

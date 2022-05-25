@@ -19,6 +19,7 @@ export default function HomePage() {
   if (!categories) {
     return <h1>LOADING...</h1>;
   }
+  console.log(categories)
   return (
     <div>
       <HorizontalScrollViews type="home" categories={categories.genres} />

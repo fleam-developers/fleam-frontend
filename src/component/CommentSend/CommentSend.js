@@ -101,7 +101,7 @@ export default function CommentSend() {
 
         {"user" === "user" ? (
           <Button className="commentButton" onClick={toggle}>
-            Ask Question
+            Add Comment
           </Button>
         ) : null}
       </div>

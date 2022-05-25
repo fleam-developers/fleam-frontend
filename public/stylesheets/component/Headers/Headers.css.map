@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../../../src/component/Headers/Headers.scss","../../../../src/App.scss"],"names":[],"mappings":"AAEA;EACE;EACA;;AACA;EACE,OCGW;EDFX,kBCCgB;EDGhB;EACA;EACA;EACA;;AANA;EACE;;AAOJ;EACE;;AAEF;EACE;;AAEF;EACE;EACA","file":"Headers.css"}
+{"version":3,"sourceRoot":"","sources":["../../../../src/component/Headers/Headers.scss","../../../../src/App.scss"],"names":[],"mappings":"AAEA;EACE;EACA;;AACA;EACE,OCGW;EDFX,kBCCgB;EDGhB;EACA;EACA;EACA;;AANA;EACE;;AAOJ;EACE;;AAEF;EACE;;AAEF;EACE;EACA;;;AAKF;EACE;EACA;EACA","file":"Headers.css"}

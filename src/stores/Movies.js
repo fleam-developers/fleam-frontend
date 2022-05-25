@@ -41,8 +41,13 @@ export const fetchStream = createAsyncThunk(
 export const addNewMovie = createAsyncThunk(
   `${namespace}/addNewMovie`,
   async (contentData) => {
-    console.log(contentData)
-    await axios.post(`${API_URL}/movies/`, contentData)
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const {data} = await axios.post(`${API_URL2}/movies/`, contentData, config)
+    return data
   },
 )
 

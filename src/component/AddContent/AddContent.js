@@ -22,7 +22,7 @@ export default function AddContent() {
   const [category, setCategory] = React.useState("");
   const [description, setDescription] = React.useState("");
   const [photo, setPhoto] = React.useState("");
-  const [content, setContent] = React.useState("");
+  const [content, setContent] = React.useState();
 
   const [open, setSnackbarOpen] = React.useState(false);
   const [severity, setSnackbarSeverity] = React.useState("success");
@@ -30,7 +30,7 @@ export default function AddContent() {
   
   
   const dispatch = useDispatch();
-  const creator = "sample creator"
+  
   const handleSnackbarClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -42,14 +42,15 @@ export default function AddContent() {
 
     const movieData = {
       name: name,
-      contentCreator: creator,
-      category: category,
-      text: description,
-      image: photo,
-      content: content
+      creator_id: localStorage.getItem("userId"),
+      genre: category,
+      description: description,
+      poster_url: photo,
     };
 
-    dispatch(addNewMovie(movieData))
+    dispatch(addNewMovie(movieData)).then((res) => {
+      console.log(res)
+    })
 
   }
 
@@ -67,8 +68,8 @@ export default function AddContent() {
                 <FormItem id_name="name" label="Content Name" value={name} setValue={setName}></FormItem>
                 <FormItem id_name="category" label="Content Category" value={category} setValue={setCategory}></FormItem>
                 <FormItem id_name="description" multiline={true} maxRows={3} label="Content Description" value={description} setValue={setDescription}></FormItem>
-                <FormItem id_name="photo" type="file" label="Content Photo" value={photo} setValue={setPhoto}></FormItem>
-                <FormItem id_name="content" type="file" label="Upload Video" value={content} setValue={setContent}></FormItem>
+                <FormItem id_name="photo" label="Content Photo" value={photo} setValue={setPhoto}></FormItem>
+                {/* <FormItem id_name="content" type="file" label="Upload Video" value={content} setValue={setContent}></FormItem> */}
                 
               </Grid>
               <Button
