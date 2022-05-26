@@ -27,7 +27,7 @@ export default function LandingPage() {
       id: 1,
       title: "Welcome to Fleam",
       subTitle: "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
-      text: "Fleam is a adfdadafad adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhkah adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk af kfahfahkfaafkfha k hak afhkakfh hfakafhkfh",
+      text: "In today's modern world, with the spread of the internet and technological tools becoming more accessible in terms of economy and logistics, people's access to technology has greatly increased. In this way, people started to do the work easier than in old times that used to be difficult and demanding to do. Thus, various sectors have adapted to these developments in technology. One of these sectors is the movie industry. In the past, people went to the movie theater to watch a movie. Now, they can easily access the movie they want, whenever they want, wherever they want, from a mobile phone, computer, or smart TV. In this process, many platforms have emerged that provide such services. Especially with the start of the pandemic process, people started to spend longer at home. Eventually, the interest in these platforms has increased.",
     },
   ];
   const details = [
@@ -41,13 +41,7 @@ export default function LandingPage() {
       id: 2,
       title: "Backend Development",
 
-      text: "Fleam is a adfdadafad adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhkah adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk af kfahfahkfaafkfha k hak afhkakfh hfakafhkfh",
-    },
-    {
-      id: 3,
-      title: "Recommendation System",
-
-      text: "Fleam is a adfdadafad adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhkah adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk af kfahfahkfaafkfha k hak afhkakfh hfakafhkfh",
+      text: "In today’s world there are two main backend architectures for web applications. One of them is the traditional way, which is the monolithic architecture and the other is the one that became popular in the last 10 years which is microservice architecture. Main idea of the microservice design pattern is building easy to develop and deploy, independent and flexible software systems. On the other hand some worldwide streaming companies, like Netflix and Spotify, build their products using microservice architecture to serve their customers. Even though using microservices brings its own cons like, managing and maintaining multiple services, handling failures during communication of services, network latency and load balancing; it brings lots of advantages like scalability, preventing single point of failure, easy deployment, efficient resource management, separation of business logic etc. Especially in a video streaming platform, there are different requirements which have different costs and needs. For example, for user specific requirements like authorization/authentication making comments, rating movies, are not time consuming tasks. But like video streaming or inferencing a machine learning model for movie recommendations are time and resource consuming tasks. So separating those tasks into microservices and populating them based on the traffic then making load balance between the instances is a good idea to manage a video streaming platform. In that sense it is decided to develop such a system with microservice architecture.",
     },
   ];
 
