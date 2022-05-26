@@ -20,6 +20,7 @@ export default function FormItem({ isRequired = true, multiline, maxRows, id_nam
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
+          console.log(event.target.value)
         }}
       />
     </Grid>

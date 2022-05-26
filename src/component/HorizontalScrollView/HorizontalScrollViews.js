@@ -4,7 +4,7 @@ import HorizontalScrollView from "./HorizontalScrollView";
 import "./HorizontalScrollView.scss";
 
 export default function HorizontalScrollViews(props) {
-
+  console.log(props)
   if (!props.categories) {
     return <h1>LOADING...</h1>;
   }

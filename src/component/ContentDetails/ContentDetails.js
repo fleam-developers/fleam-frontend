@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Card, Rating, Typography } from "@mui/material";
+import { Card, Rating, TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 
 import "./ContentDetails.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { createRatings, getUserRatingForMovie } from "../../stores/Movies";
+import { createRatings, getUserRatingForMovie, uploadVideo } from "../../stores/Movies";
+import FormItem from "../Common/FormItem";
 
 export default function ContentDetails(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { contentName } = useParams();
   const [value, setValue] = React.useState(useSelector((state) => state.movies));
+  const [content, setContent] = React.useState();
 
   const { userRatingForMovie } = useSelector((state) => state.movies);
 
@@ -27,14 +29,45 @@ export default function ContentDetails(props) {
         <span style={{ opacity: "0.6" }}>who shared: </span>
         {props.details.contentCreator}
       </div>
-      <Button
-        className="play-button"
-        onClick={() => {
-          navigate(`/video/${props.details.id}`);
-        }}
-      >
-        Play
-      </Button>
+      {1 ? (
+        <Button
+          className="play-button"
+          onClick={() => {
+            navigate(`/video/${props.details.id}`);
+          }}
+        >
+          Play
+        </Button>
+      ) : (
+        <>
+          <Button
+            className="play-button"
+            onClick={() => {
+              dispatch(uploadVideo({ movieFile: {content}, movieId: props.details.id })).then((res) => {
+                console.log(res);
+                if (res.payload) {
+                  console.log(res);
+                }
+              });
+            }}
+          >
+            Upload
+          </Button>
+          <FormItem id_name="content" type="file" label="Upload Video" value={content} setValue={setContent}></FormItem>
+          {/* <TextField
+            variant="outlined"
+            fullWidth
+            id={"content"}
+            type={"file"}
+            label={"Upload Video"}
+            name={"content"}
+            value={value}
+            onChange={(event) => {
+              setValue(event.target.value);
+            }}
+          /> */}
+        </>
+      )}
       {/* <Typography component="legend">Controlled</Typography>
       <Rating
         name="simple-controlled"

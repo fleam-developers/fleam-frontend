@@ -46,7 +46,20 @@ export const addNewMovie = createAsyncThunk(
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
     };
-    const {data} = await axios.post(`${API_URL2}/movies/`, contentData, config)
+    const {data} = await axios.post(`${API_URL2}/movie`, contentData, config)
+    return data
+  },
+)
+
+export const uploadVideo = createAsyncThunk(
+  `${namespace}/uploadVideo`,
+  async ({movieFile, movieId}) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const {data} = await axios.post(`${API_URL2}/upload?movieId=${movieId}`, movieFile, config)
     return data
   },
 )
@@ -110,6 +123,10 @@ const MoviesSlice = createSlice({
       state.errorMessage = error.message
     },
     [fetchSelectedMovie.fulfilled](state, { payload }) {
+      state.loading = HTTP_STATUS.FULFILLED
+      state.selectedMovie = payload
+    },
+    [addNewMovie.fulfilled](state, { payload }) {
       state.loading = HTTP_STATUS.FULFILLED
       state.selectedMovie = payload
     },

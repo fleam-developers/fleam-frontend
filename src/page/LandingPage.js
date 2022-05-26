@@ -22,27 +22,29 @@ import image11 from "../resource/image11.png";
 import image12 from "../resource/image12.png";
 
 export default function LandingPage() {
-  const dummyData = [
+  const abstract = [
     {
       id: 1,
       title: "Welcome to Fleam",
       subTitle: "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
       text: "Fleam is a adfdadafad adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhkah adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk af kfahfahkfaafkfha k hak afhkakfh hfakafhkfh",
     },
+  ];
+  const details = [
     {
-      id: 2,
+      id: 1,
       title: "Frontend Development",
 
       text: "Fleam is a adfdadafad adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhkah adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk af kfahfahkfaafkfha k hak afhkakfh hfakafhkfh",
     },
     {
-      id: 3,
+      id: 2,
       title: "Backend Development",
 
       text: "Fleam is a adfdadafad adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhkah adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk af kfahfahkfaafkfha k hak afhkakfh hfakafhkfh",
     },
     {
-      id: 4,
+      id: 3,
       title: "Recommendation System",
 
       text: "Fleam is a adfdadafad adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhkah adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk adgdgaadgadgkdgad gfkfaskghaafhkafhhfakfhkafhafkhafkhfakfhafhk af kfahfahkfaafkfha k hak afhkakfh hfakafhkfh",
@@ -60,6 +62,7 @@ export default function LandingPage() {
       <LandingHeader />
       {/* <Counter></Counter> */}
       {/* <Dashboard></Dashboard> */}
+      <JumboItems items={abstract} />
       <h1 className="search-value">Website Images</h1>
       <CategoryGroup className="category-details-group">
         <Grid className="portfolio" container spacing={{ xs: 2, md: 3 }}>
@@ -114,7 +117,7 @@ export default function LandingPage() {
         </Grid>
       </CategoryGroup>
 
-      <JumboItems items={dummyData} />
+      <JumboItems items={details} />
     </div>
   );
 }

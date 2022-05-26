@@ -12,6 +12,7 @@ import "./HorizontalScrollView.scss";
 export default function HorizontalScrollView(props) {
   const navigate = useNavigate();
   const [items, setItems] = React.useState(props.movies);
+  
   // const [selected, setSelected] = React.useState([]);
   // const [position, setPosition] = React.useState(0);
 
@@ -26,7 +27,7 @@ export default function HorizontalScrollView(props) {
   //     );
   //   };
   // console.log(props)
-  if (!items.length) {
+  if (!items || !items.length) {
     return <></>;
   }
   

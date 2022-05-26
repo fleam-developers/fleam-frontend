@@ -15,7 +15,7 @@ import FormItem from "../Common/FormItem";
 
 import "./AddContent.scss";
 import { useDispatch } from "react-redux";
-import { addNewMovie } from "../../stores/Movies";
+import { addNewMovie, fetchSelectedMovie } from "../../stores/Movies";
 
 export default function AddContent() {
   const [name, setName] = React.useState("");
@@ -27,10 +27,10 @@ export default function AddContent() {
   const [open, setSnackbarOpen] = React.useState(false);
   const [severity, setSnackbarSeverity] = React.useState("success");
   const [snackbarMessage, setSnackbarMessage] = React.useState("");
-  
-  
+
   const dispatch = useDispatch();
-  
+  const navigate = useNavigate();
+
   const handleSnackbarClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -38,7 +38,7 @@ export default function AddContent() {
     setSnackbarOpen(false);
   };
   const handleClick = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const movieData = {
       name: name,
@@ -49,10 +49,12 @@ export default function AddContent() {
     };
 
     dispatch(addNewMovie(movieData)).then((res) => {
-      console.log(res)
-    })
-
-  }
+      console.log(res);
+      if (res.payload) {
+        navigate(`/browse`);
+      }
+    });
+  };
 
   return (
     <div>
@@ -66,11 +68,22 @@ export default function AddContent() {
             <form className="form" noValidate>
               <Grid container spacing={2}>
                 <FormItem id_name="name" label="Content Name" value={name} setValue={setName}></FormItem>
-                <FormItem id_name="category" label="Content Category" value={category} setValue={setCategory}></FormItem>
-                <FormItem id_name="description" multiline={true} maxRows={3} label="Content Description" value={description} setValue={setDescription}></FormItem>
+                <FormItem
+                  id_name="category"
+                  label="Content Category"
+                  value={category}
+                  setValue={setCategory}
+                ></FormItem>
+                <FormItem
+                  id_name="description"
+                  multiline={true}
+                  maxRows={3}
+                  label="Content Description"
+                  value={description}
+                  setValue={setDescription}
+                ></FormItem>
                 <FormItem id_name="photo" label="Content Photo" value={photo} setValue={setPhoto}></FormItem>
                 {/* <FormItem id_name="content" type="file" label="Upload Video" value={content} setValue={setContent}></FormItem> */}
-                
               </Grid>
               <Button
                 type="submit"
