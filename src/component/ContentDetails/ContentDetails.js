@@ -7,6 +7,8 @@ import "./ContentDetails.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { createRatings, getUserRatingForMovie, uploadVideo } from "../../stores/Movies";
 import FormItem from "../Common/FormItem";
+import { API_URL2 } from "../../stores/constants";
+import axios from "axios";
 
 export default function ContentDetails(props) {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ export default function ContentDetails(props) {
   const [content, setContent] = React.useState();
 
   const { userRatingForMovie } = useSelector((state) => state.movies);
-
+  console.log(userRatingForMovie)
   useEffect(() => {
     dispatch(getUserRatingForMovie(contentName));
   }, [contentName, value]);
@@ -33,6 +35,18 @@ export default function ContentDetails(props) {
         <Button
           className="play-button"
           onClick={() => {
+            const config = {
+              headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+              },
+            };
+            const data = {
+              userId: localStorage.getItem("userId"),
+              movieId: props.details.id,
+            };
+            axios.post(`${API_URL2}/user/watching`, data, config).then((res) => {
+              console.log(res)
+            })
             navigate(`/video/${props.details.id}`);
           }}
         >
@@ -43,7 +57,7 @@ export default function ContentDetails(props) {
           <Button
             className="play-button"
             onClick={() => {
-              dispatch(uploadVideo({ movieFile: {content}, movieId: props.details.id })).then((res) => {
+              dispatch(uploadVideo({ file: { movieFile: content }, movieId: props.details.id })).then((res) => {
                 console.log(res);
                 if (res.payload) {
                   console.log(res);

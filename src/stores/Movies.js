@@ -53,13 +53,16 @@ export const addNewMovie = createAsyncThunk(
 
 export const uploadVideo = createAsyncThunk(
   `${namespace}/uploadVideo`,
-  async ({movieFile, movieId}) => {
+  async ({file, movieId}) => {
     const config = {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
     };
-    const {data} = await axios.post(`${API_URL2}/upload?movieId=${movieId}`, movieFile, config)
+    const formData = new FormData()
+    console.log(file)
+    formData.append("movieFile", file)
+    const {data} = await axios.post(`${API_URL2}/upload?movieId=${movieId}`, formData, config)
     return data
   },
 )
