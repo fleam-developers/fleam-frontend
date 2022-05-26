@@ -83,7 +83,7 @@ export default function AddContent() {
                   setValue={setDescription}
                 ></FormItem>
                 <FormItem id_name="photo" label="Content Photo" value={photo} setValue={setPhoto}></FormItem>
-                {/* <FormItem id_name="content" type="file" label="Upload Video" value={content} setValue={setContent}></FormItem> */}
+                <FormItem id_name="content" type="file" label="Upload Video" value={content} setValue={setContent}></FormItem>
               </Grid>
               <Button
                 type="submit"
